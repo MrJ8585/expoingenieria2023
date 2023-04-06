@@ -1,21 +1,33 @@
 import React from 'react'
+import '../css/Footer.css'
 
 function Footer() {
   return (
     <footer>
+        <div className='container'>
 
-        <div className='title'>
-            <span>Preguntas</span>
-        </div>
-
-        <div className='input'>
-            <div className='inner-input'>
-                <input id='email'></input>
-                <button><img /></button>
+            <div className='title'>
+                <span>Preguntas</span>
             </div>
-        </div>
 
-        <div className='links'>
+
+            <div className='inner-input'>
+                <input id='email' placeholder='Contáctanos'></input>
+                <button><img id='email-icon' src='https://cdn-icons-png.flaticon.com/512/542/542689.png' alt='email-icon'/></button>
+            </div>
+
+
+            <div className='bottom-box'>
+                <div className='links'>
+                    <button><img src='https://cdn-icons-png.flaticon.com/512/1384/1384005.png'/></button>
+                    <button><img src='https://cdn-icons-png.flaticon.com/512/10110/10110386.png'/></button>
+                    <button><img src='https://cdn-icons-png.flaticon.com/512/6244/6244438.png'/></button>
+                    <button><img src='https://cdn-icons-png.flaticon.com/512/3669/3669688.png'/></button>
+                </div>
+                <span>
+                    CETYS Ensenada
+                </span>
+            </div>
 
         </div>
 
