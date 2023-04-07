@@ -1,11 +1,12 @@
 import React from 'react'
 import '../css/Header.css'
+import {Link} from 'react-router-dom'
 
 function Header() {
   return (
     <header>
 
-        <img id='cetys-logo' src='https://www.cetys.mx/en/wp-content/uploads/2016/11/logo-cetys.png' />
+        <Link to='/home'><img id='cetys-logo' src='https://www.cetys.mx/en/wp-content/uploads/2016/11/logo-cetys.png' /></Link>
 
         <div className='right-box'>
 
