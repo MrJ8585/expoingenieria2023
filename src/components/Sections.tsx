@@ -13,7 +13,7 @@ function Sections() {
         <div className='inner-box'>
 
             <span onClick={() => navigate('/about')}>¿Qué es?</span>
-            <span onClick={() => navigate('/home')}>Proyectos</span>
+            <span onClick={() => navigate('/categories')}>Proyectos</span>
             <span>Preguntas</span>
 
         </div>

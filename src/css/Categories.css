@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Poppins:wght@200;300;400;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* --------------------------------- */
+
+
+.categories-main #title {
+    font-family: 'Poppins';
+    font-weight: 600;
+    font-size: 5.5rem;
+    padding-top: 5rem;
+    padding-bottom: 2rem;
+    display: flex;
+    justify-content: space-around;
+}
+
+.categories-main .description {
+    display: flex;
+    justify-content: space-around;
+    background-color: black;
+    color: white;
+    text-align: left;
+    padding: 8.3rem 0;
+    font-family: 'Poppins';
+    font-weight: 400;
+    font-size: 1rem;
+}
+
+.categories-main .cat {
+    height: 38vh;
+}
+
+.categories-main .cat1 {
+    display: flex;
+    justify-content: space-between;
+}
+
+.categories-main .cat1 .left-box {
+    width: 55%;
+}
+
+.categories-main .cat1 .upper-box {
+    font-family: 'Poppins';
+    font-weight: 600;
+    font-size: 4rem;
+    text-align: left;
+    padding: 1.5rem;
+}
+
+.categories-main .cat1 .bottom-box {
+    display: flex;
+    justify-content: flex-end;
+    padding: 0 2rem 2rem 0;
+    font-weight: 600;
+}
+
+.categories-main .cat1 .right-box {
+    width: 45%;
+    background-repeat: no-repeat;
+    background-position: -40rem center;
+    background-size: 90rem;
+}
+
+.categories-main .academica .right-box {
+    background-image: url('https://s3-alpha-sig.figma.com/img/7783/9e96/2831eff8f549e43cf24c94ec7b842cd2?Expires=1681689600&Signature=EWyF3AocA4Zjw1sU7CwoSj~opNKm4GfBhZrioswvVNB2-TRiH~Hb74~tsiR5N75W6YSF5YkAq8McjaLMQ-BgG1AKql~J6hNqSDY-i22jxYkIIs4kYJkTTtuPG3kRHkqSG7vMlhQ4ayKBOqaFlC8k0EegJh3DkVw0EH5FydTzVVHG~NLn7Q5MrVGoJRtV7KaSVowdE1NnFBhNEhwoqx3yQv7pHCs4LqfGurUwTd07UZEktGcA2joZ7k~ciVZCgOaFPl4~J2HmtD~EbZ6T6JGg160YuGh0xWalB1NkK4q24FqNigLKg8wZU6taljuEDMOuYbwBDRPTlatLzT71RV9W5Q__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4');
+}
+
+
+.categories-main .cat2 {
+    display: flex;
+    justify-content: space-between;
+}
+
+.categories-main .cat2 .right-box {
+    width: 55%;
+    display: flex;
+    flex-direction: column;
+    background-color: #FFC122;
+}
+
+.categories-main .cat2 .left-box {
+    width: 45%;
+}
+
+.categories-main .cat2 .upper-box {
+    font-family: 'Poppins';
+    font-weight: 600;
+    font-size: 4rem;
+    text-align: right;
+    padding: 1.5rem;
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+.categories-main .cat2 .bottom-box {
+    display: flex;
+    justify-content: flex-end;
+    padding: 0 2rem 2rem 0;
+    font-weight: 600;
+    width: 100%;
+}
+
+.categories-main .intermedio .left-box {
+    background-image: url('https://s3-alpha-sig.figma.com/img/ba49/f48a/8d7915396b78ca41b2cce573fc552791?Expires=1681689600&Signature=ZqIvPhuXirvcZN-FzRJ30vEs4A4M17gkXz8PBTJn6439IGpqelKgmq8yUlvI-ToH-dejQjDu7M7Q-qt5ChgtEWZ1SCanC3XwQhA3XS2OpTps6uwp34X1LIFsMha6ncmuzZJyJZAJ2QAQNHLOndiHXUdHWbPo~lfEe4P0BSeBCoWNAU6deulxNHpegvxQ5bQnTkUeU7EcrKILyRIJf~SMYjewgfuRzzyytnjvT6nqhGevZAFGs6TuBHAseKGVxsLYzI0WXjMdQAPR4oNMQXbJTzvQSKlUIoPkAq615BGHJuLpA1eMlI87BYpvru21qVGsHS5gzsFYAfvkF2Wbcoqcvg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4');    
+}
+
+.categories-main .cat2 .left-box {
+    width: 45%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 80rem;
+}
+
+.categories-main .avanzado .bottom-box {
+    text-align: start;
+    justify-content: flex-start;
+    padding: 0 0 2rem 2rem;
+}
+
+.categories-main .avanzado .right-box {
+    background-image: url('https://s3-alpha-sig.figma.com/img/7d05/4fbb/06d0234eceaf2cf7ba97734f0d3e0fe0?Expires=1681689600&Signature=gzClsAxxTrhVA8UyHNOlAouC-E-0RmZ2kQXKrfqFvFgW1XL3rcVevj6MVdp2aRtWpXjd4laWecv53G8rViM6fSyFK3yOZb7BgejDXbs3yF0~QJ2ae1uxH7XQFvE9DI4fR7EbXXLrRtcS1sKTT~Ia4idl-Mmzb~Ktda3~8TGuNzrGwXszCMTA5S6W4nOB0GmtU28pCYw9EI5CIO16NvWac-4kvaHzGAFXAxX072i2yOEUNzF5k0nr3f~FxZEFavMDxjvtsEmc5PQRCSkt9smi7SChB2HjZK~8H-uyEqxKchRZqG0azpxsdwzDI4bVzzI7hx6gPdP3n5-6~uoeHKN87A__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4');
+}
+
+.categories-main .avanzado .right-box {
+    width: 45%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 50rem;
+}
