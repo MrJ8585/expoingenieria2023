@@ -1,5 +1,6 @@
 import React from 'react'
 import '../css/Categories.css'
+import FooterButtons from './FooterButtons'
 
 function Categories() {
 
@@ -64,6 +65,8 @@ function Categories() {
 
             </div>
         </div>
+
+        <FooterButtons/>
 
 
 
