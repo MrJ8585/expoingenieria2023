@@ -1,8 +1,15 @@
 import React from 'react'
 import '../css/Header.css'
 import {Link} from 'react-router-dom'
+import { useAuth0 } from '@auth0/auth0-react'
+import {useState} from 'react'
 
 function Header() {
+
+  const {loginWithRedirect, isAuthenticated, logout} = useAuth0()
+
+
+  
   return (
     <header>
 
@@ -15,10 +22,21 @@ function Header() {
                 <input id='search-bar'></input>
             </div>
 
-            <button id='log-in'>
+            {isAuthenticated ?
+            <button id='log-out' onClick={() => {
+              logout({logoutParams: {returnTo: window.location.origin}})
+            }}>
+              <img id='user-icon' src='https://cdn-icons-png.flaticon.com/512/456/456212.png' alt='user-icon'/>
+                Iniciar Sesión
+            </button>
+            :
+            <button id='log-in' onClick={() => {
+              loginWithRedirect()
+            }}>
                 <img id='user-icon' src='https://cdn-icons-png.flaticon.com/512/456/456212.png' alt='user-icon'/>
                 Iniciar Sesión
             </button>
+            }
 
         </div>
 

@@ -60,6 +60,23 @@ header {
     background-color: rgb(226, 225, 225);
 }
 
+#log-out {
+    display: flex;
+    align-items: center;
+    padding: .4rem 1rem;
+    border: none;
+    background-color: transparent;
+    transition: all ease .3s;
+    border-radius: 5px;
+    font-family: 'poppins';
+    font-size: medium;
+}
+
+#log-out:hover {
+    cursor: pointer;
+    background-color: rgb(226, 225, 225);
+}
+
 #search-bar {
     width: 0;
     border: none;
