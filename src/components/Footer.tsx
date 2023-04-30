@@ -2,20 +2,28 @@ import React from 'react'
 import '../css/Footer.css'
 
 function Footer() {
+
+    const isMobile = window.innerWidth < 768
+
+
+
   return (
     <footer>
         <div className='container'>
 
-            <div className='title'>
-                <span>Preguntas</span>
+            <div className='upper-content'>
+
+                <div className='title'>
+                    <span>Preguntas</span>
+                </div>
+
+
+                <div className='inner-input'>
+                    <input id='email' placeholder='Contáctanos'></input>
+                    <button><img id='email-icon' src='https://cdn-icons-png.flaticon.com/512/542/542689.png' alt='email-icon'/></button>
+                </div>
+
             </div>
-
-
-            <div className='inner-input'>
-                <input id='email' placeholder='Contáctanos'></input>
-                <button><img id='email-icon' src='https://cdn-icons-png.flaticon.com/512/542/542689.png' alt='email-icon'/></button>
-            </div>
-
 
             <div className='bottom-box'>
                 <div className='links'>

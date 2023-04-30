@@ -1,0 +1,113 @@
+.main-proydisplay #title {
+    font-size: 3rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.main-proydisplay {
+    margin-bottom: 8rem;
+}
+
+.main-scroll {
+    display: flex;
+    justify-content: space-around;
+}
+
+.scroll-proys {
+    height: 25vh;
+    overflow-y: hidden;
+    overflow-y: scroll;
+    width: 40%;
+}
+
+.maped-proy:hover {
+    cursor: pointer;
+}
+
+.maped-proy {
+    transition: all ease .3s;
+}
+
+.selected-proy-scroll {
+    background-color: #FFC122;
+    transition: all ease .3s;
+    border-radius: 10px;
+    font-size: larger;
+    padding: .3rem;
+}
+
+.selected-proy-scroll:hover {
+    cursor: pointer;
+}
+
+.selected-proy {
+    height: 45vh;
+}
+
+.selected-proy .upper-box {
+    display: flex;
+    justify-content: space-around;
+    align-items: end;
+}
+
+.selected-proy .inner-middle {
+    display: flex;
+    background-color: #F5F5F5;
+    width: 50%;
+    padding: 2.5rem;
+    justify-content: space-between;
+    border-radius: 15px;
+    height: 13rem;
+}
+
+.selected-proy .inner-middle .inner-right-box {
+    width: 60%;
+}
+
+.selected-proy .objs {
+    display: flex;
+}
+
+.main-objs {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 1.5rem;
+}
+
+.main-objs .objs {
+    width: 65%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.obj-unactive {
+    filter: grayscale(1);
+}
+
+.main-objs .objs:hover {
+    cursor: pointer;
+}
+
+.obj-unactive:hover {
+    cursor: pointer;
+}
+
+.bottom-desc {
+    display: flex;
+    justify-content: flex-start;
+    padding-bottom: 3rem;
+}
+
+.bottom-desc .inner-bottom-desc {
+    width: 40%;
+    background-color: #F5F5F5;
+    padding: 2rem;
+    margin: 2rem;
+    height: auto;
+    border-radius: 10px;
+    letter-spacing: 1px;
+    font-weight: 400;
+}
+

@@ -3,7 +3,7 @@ import '../css/FooterButtons.css'
 
 function FooterButtons() {
 
-    const [digitales, setDigitales] = useState(false)
+    const [digitales, setDigitales] = useState(true)
 
     const [noDigitales, setNoDigitales] = useState(false)
 
@@ -18,8 +18,10 @@ function FooterButtons() {
                 <button className={digitales ? 'switch-active' : 'switch'} onClick={() => {
                     if(digitales){
                         setDigitales(false)
+                        setNoDigitales(true)
                     }else{
                         setDigitales(true)
+                        setNoDigitales(false)
                     }
                 }}>
                     <div className='inner-box'>
@@ -28,12 +30,14 @@ function FooterButtons() {
             </div>
 
             <div className='box'>
-                <p>No Digitales</p>
+                <p>PPA</p>
                 <button className={noDigitales ? 'switch-active' : 'switch'} onClick={() => {
                     if(noDigitales){
                         setNoDigitales(false)
+                        setDigitales(true)
                     }else{
                         setNoDigitales(true)
+                        setDigitales(false)
                     }
                 }}>
                     <div className='inner-box'>
