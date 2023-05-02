@@ -57,3 +57,23 @@
     font-size: x-large;
     width: auto;
 }
+
+/* Mobile Section */
+
+@media screen and (max-width: 768px) {
+ 
+    .proyects-main #logo-exping {
+        height: auto;
+        max-width: 100%;
+        margin-bottom: -2rem;
+    }
+
+    .proyects-main #main-text {
+        font-size: .7rem;
+        margin: 1rem .8rem;
+        margin-bottom: 0;
+    }
+    
+
+
+}

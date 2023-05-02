@@ -1,0 +1,1 @@
+export const privUsers: string[] = ["caleb.payan@cetys.edu.mx"];

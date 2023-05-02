@@ -8,8 +8,15 @@ import Info from './components/Info';
 import Footer from './components/Footer';
 import Categories from './components/Categories';
 
+import { useAuth0 } from '@auth0/auth0-react'
+import ProyDisplay from './components/ProyDisplay';
+
 
 function App() {
+
+  const {user} = useAuth0()
+
+
   return (
     <BrowserRouter>
       <div className="App">
@@ -18,9 +25,10 @@ function App() {
         <Sections/>
 
         <Routes>
-          <Route path='/home' element={ <Homepage/> } />
+          <Route path='/' element={ <Homepage/> } />
           <Route path='/about' element={ <Info/> } />
           <Route path='/categories' element={ <Categories/> } />
+          <Route path='/proyects/:cat_id/:digitales' element={ <ProyDisplay/> } />
         </Routes>
 
         <Footer/>

@@ -6,14 +6,18 @@ import {useState} from 'react'
 
 function Header() {
 
-  const {loginWithRedirect, isAuthenticated, logout} = useAuth0()
+  const {loginWithRedirect, isAuthenticated, logout, user} = useAuth0()
+
+  const isMobile = window.innerWidth < 768
 
 
   
   return (
     <header>
-
-        <Link to='/home'><img id='cetys-logo' src='https://www.cetys.mx/en/wp-content/uploads/2016/11/logo-cetys.png' /></Link>
+        {isMobile ? <div className='upper-mobile-head'>
+          <Link to='/'><img id='cetys-logo' src='https://www.cetys.mx/en/wp-content/uploads/2016/11/logo-cetys.png' /></Link>
+          <img id='user-img' src={user ? user?.picture : 'https://cdn-icons-png.flaticon.com/512/456/456212.png'} alt=''/>
+        </div> : <Link to='/'><img id='cetys-logo' src='https://www.cetys.mx/en/wp-content/uploads/2016/11/logo-cetys.png' /></Link>}
 
         <div className='right-box'>
 
@@ -26,8 +30,10 @@ function Header() {
             <button id='log-out' onClick={() => {
               logout({logoutParams: {returnTo: window.location.origin}})
             }}>
-              <img id='user-icon' src='https://cdn-icons-png.flaticon.com/512/456/456212.png' alt='user-icon'/>
-                Iniciar Sesión
+              {isMobile ? <img id='user-icon' src='https://cdn-icons-png.flaticon.com/512/456/456212.png' alt=''/>
+              :
+               <img id='user-img' src={user ? user?.picture : 'https://cdn-icons-png.flaticon.com/512/456/456212.png'} alt=''/>}
+                Cerrar Sesión
             </button>
             :
             <button id='log-in' onClick={() => {

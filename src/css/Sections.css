@@ -33,5 +33,17 @@
     font-size: x-large;
     cursor: pointer;
     color: #F5C235;
-;
+}
+
+@media screen and (max-width: 768px) {
+    .section-main .inner-box {
+        font-size: small;
+        width: 70%;
+    }
+
+    .section-main .inner-box span:hover {
+        font-size: large;
+        cursor: pointer;
+        color: #F5C235;
+    }
 }

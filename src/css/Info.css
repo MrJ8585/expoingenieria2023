@@ -32,3 +32,27 @@
     font-weight: 300;
     margin-top: 2rem;
 }
+
+
+@media screen and (max-width: 768px) {
+    .about-section #content {
+        font-size: 1rem;
+    }
+
+    .about-section .inner-content {
+        padding: 1rem;
+    }
+
+    .about-section .inner-content #upper-title {
+        margin-top: 3rem;
+        margin-left: -13rem;
+        margin-bottom: -1.35rem;
+        font-size: 18px;
+        font-family: 'poppins';
+    }
+
+    .about-section .inner-content #title {
+        font-size: 45px;
+    }
+
+}

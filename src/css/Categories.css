@@ -8,6 +8,9 @@
 
 /* --------------------------------- */
 
+.categories-main .cat:hover {
+    cursor: pointer;
+}
 
 .categories-main #title {
     font-family: 'Poppins';
@@ -38,6 +41,7 @@
 .categories-main .cat1 {
     display: flex;
     justify-content: space-between;
+    transition: all ease .3s;
 }
 
 .categories-main .cat1 .left-box {
@@ -50,6 +54,7 @@
     font-size: 4rem;
     text-align: left;
     padding: 1.5rem;
+    transition: all ease .3s;
 }
 
 .categories-main .cat1 .bottom-box {
@@ -67,20 +72,21 @@
 }
 
 .categories-main .academica .right-box {
-    background-image: url('https://s3-alpha-sig.figma.com/img/7783/9e96/2831eff8f549e43cf24c94ec7b842cd2?Expires=1681689600&Signature=EWyF3AocA4Zjw1sU7CwoSj~opNKm4GfBhZrioswvVNB2-TRiH~Hb74~tsiR5N75W6YSF5YkAq8McjaLMQ-BgG1AKql~J6hNqSDY-i22jxYkIIs4kYJkTTtuPG3kRHkqSG7vMlhQ4ayKBOqaFlC8k0EegJh3DkVw0EH5FydTzVVHG~NLn7Q5MrVGoJRtV7KaSVowdE1NnFBhNEhwoqx3yQv7pHCs4LqfGurUwTd07UZEktGcA2joZ7k~ciVZCgOaFPl4~J2HmtD~EbZ6T6JGg160YuGh0xWalB1NkK4q24FqNigLKg8wZU6taljuEDMOuYbwBDRPTlatLzT71RV9W5Q__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4');
+    background-image: url('https://s3-alpha-sig.figma.com/img/7783/9e96/2831eff8f549e43cf24c94ec7b842cd2?Expires=1682899200&Signature=GJf1ZiD~lBKs7~yjO8TK6B8~5aPKA076iCLjAaGZt~0lMGIgMUGl58WdbLuIjzYn3zEvLOiT7t2gRXl2IJNpEk-wxovrYosdU8BRav3BgB0xsqsmNyczRPTpV5bBlQB5DIr4NIwkIK7S37XkWzYeH7qlvDdDTx-51XfDzaFHDJJ6Elhr-SMk6Zi~oqjnksf3iOLZiMh8Z0-9W~aag2wbRJn67yuGnDuyfKkqRzPiqeXueTFr4Sxrjhvv-tXCwFTWYrULP08FOhw2j5Vaxv-FozysRJNdFZg0l93Ub022K81D13v2FVMQqilDPwlm63RG7sOrUgOFVJ0dgWf2aQP~zQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4');
 }
 
 
 .categories-main .cat2 {
     display: flex;
     justify-content: space-between;
+    transition: all ease .3s;
 }
 
 .categories-main .cat2 .right-box {
     width: 55%;
     display: flex;
     flex-direction: column;
-    background-color: #FFC122;
+
 }
 
 .categories-main .cat2 .left-box {
@@ -96,6 +102,7 @@
     display: flex;
     justify-content: flex-end;
     width: 100%;
+    transition: all ease .3s;
 }
 
 .categories-main .cat2 .bottom-box {
@@ -107,7 +114,8 @@
 }
 
 .categories-main .intermedio .left-box {
-    background-image: url('https://s3-alpha-sig.figma.com/img/ba49/f48a/8d7915396b78ca41b2cce573fc552791?Expires=1681689600&Signature=ZqIvPhuXirvcZN-FzRJ30vEs4A4M17gkXz8PBTJn6439IGpqelKgmq8yUlvI-ToH-dejQjDu7M7Q-qt5ChgtEWZ1SCanC3XwQhA3XS2OpTps6uwp34X1LIFsMha6ncmuzZJyJZAJ2QAQNHLOndiHXUdHWbPo~lfEe4P0BSeBCoWNAU6deulxNHpegvxQ5bQnTkUeU7EcrKILyRIJf~SMYjewgfuRzzyytnjvT6nqhGevZAFGs6TuBHAseKGVxsLYzI0WXjMdQAPR4oNMQXbJTzvQSKlUIoPkAq615BGHJuLpA1eMlI87BYpvru21qVGsHS5gzsFYAfvkF2Wbcoqcvg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4');    
+    background-image: url('https://s3-alpha-sig.figma.com/img/ba49/f48a/8d7915396b78ca41b2cce573fc552791?Expires=1682899200&Signature=VCDHTIpYSD1GJ10G-o3nYqgQnziUgIt2PdalwXA4rOJdeXJax2BoXt8dhLZXqpRNOQct~k9tmHBVRF2HlCEoM5XgxClAYDIEJZjiWYmXXhqvFo8SiW0bKu66nJFbsMowgTSTuSdm83nZhL4Vtmj3n~IQ3uzk8qlKY-j2lV~xs2xA8c-9I4Hqv8-4yXJVs7QNqWEQTaJmPahPLiKPhr3ktzz5mGP2GYnyjwFKS2q2CNswbSuteqPy7C3DUMCN4d6p9U6Ebk6LDRhCIVc9DBXlpfJUGavtrzQFJSJ~7tepAHugp6270JVjT2CchSwwKuCV84y1WtAXWeszH9B~39TrVA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4');    
+    height: 100%;
 }
 
 .categories-main .cat2 .left-box {
@@ -124,7 +132,7 @@
 }
 
 .categories-main .avanzado .right-box {
-    background-image: url('https://s3-alpha-sig.figma.com/img/7d05/4fbb/06d0234eceaf2cf7ba97734f0d3e0fe0?Expires=1681689600&Signature=gzClsAxxTrhVA8UyHNOlAouC-E-0RmZ2kQXKrfqFvFgW1XL3rcVevj6MVdp2aRtWpXjd4laWecv53G8rViM6fSyFK3yOZb7BgejDXbs3yF0~QJ2ae1uxH7XQFvE9DI4fR7EbXXLrRtcS1sKTT~Ia4idl-Mmzb~Ktda3~8TGuNzrGwXszCMTA5S6W4nOB0GmtU28pCYw9EI5CIO16NvWac-4kvaHzGAFXAxX072i2yOEUNzF5k0nr3f~FxZEFavMDxjvtsEmc5PQRCSkt9smi7SChB2HjZK~8H-uyEqxKchRZqG0azpxsdwzDI4bVzzI7hx6gPdP3n5-6~uoeHKN87A__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4');
+    background-image: url('https://s3-alpha-sig.figma.com/img/7d05/4fbb/06d0234eceaf2cf7ba97734f0d3e0fe0?Expires=1682899200&Signature=ZZMpQrRMbVzXiuQcOljpe800eRNBqCELGiJ4uONyIURjrX4mH37fLa8Rv8B3hJSndOQkl39DmRPqdlkf0rJ6oMaGY9UBjkWeyxoL1pOmt84JMQNmQWJ2WPQVWNjj2XNyTWoedmcZ3h1IMQqKXoFMhkZizNDJQpFy1ofLu5IhKoECi4OqdTDxp6WYdY-lzxvDLn-o15jQZchbHqGQIuaxDYlPTHJt5SF-4mAPvWP3a8oQ5sQiQbGRPIayfFRyiIyHLWtrbFRZyaoWSKnxzX37PwD-20eNXqbmcb7S~-dddLwJ9Dha9vFf6e--cXPQVfdavZBB4xy45QPE-WW~ISnnwQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4');
 }
 
 .categories-main .avanzado .right-box {
@@ -132,4 +140,55 @@
     background-repeat: no-repeat;
     background-position: center center;
     background-size: 50rem;
+}
+
+.categories-main .activa .top {
+    color: white;
+    transition: all ease .3s;
+}
+
+.categories-main .activa .bottom {
+    color: #614600;
+    transition: all ease .3s;
+}
+
+.categories-main .activa {
+    background-color: #FFC122;
+    transition: all ease .3s;
+}
+
+@media screen and (max-width: 768px) {
+    .categories-main #title {
+        font-size: 1.5rem;
+    }
+
+    .categories-main .description {
+        display: flex;
+        justify-content: space-around;
+        background-color: black;
+        color: white;
+        text-align: left;
+        padding: 4rem 0;
+        font-family: 'Poppins';
+        font-weight: 400;
+        font-size: .8rem;
+    }
+
+    .categories-main .cat .upper-box{
+        font-size: 1.5rem;
+    }
+
+    .categories-main .cat1 .bottom-box {
+        display: flex;
+        justify-content: flex-start;
+        padding-left: 1.5rem;
+        font-weight: 600;
+    }
+
+    .categories-main .cat1 .left-box {
+        width: 55%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
 }
