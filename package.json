@@ -24,7 +24,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "start-mobile": "react-scripts start --host 192.168.1.190"
+    "start-mobile": "react-scripts start --host 10.97.200.58"
+
   },
   "eslintConfig": {
     "extends": [

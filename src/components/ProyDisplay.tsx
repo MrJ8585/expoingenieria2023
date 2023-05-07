@@ -46,7 +46,7 @@ function ProyDisplay() {
         desc: "",
         video: "",
         categoria: "",
-        objetivo: []
+        objetivo: ""
     })
 
     const proyectsDummy = [
@@ -56,7 +56,7 @@ function ProyDisplay() {
           desc: "Un asistente virtual para bibliotecas que ayuda a los usuarios a encontrar y reservar libros",
           video: "https://youtube/url",
           categoria: "1",
-          objetivo: "1,2,4,7",
+          objetivo: "01,02,04,07",
           digital: '1'
         },
         {
@@ -65,7 +65,7 @@ function ProyDisplay() {
           desc: "Una aplicación para aprender a cultivar plantas en casa y cuidar el medio ambiente",
           video: "https://youtube/url",
           categoria: "1",
-          objetivo: "3,6,9,12",
+          objetivo: "03,06,09,12",
           digital: '1'
         },
         {
@@ -92,7 +92,7 @@ function ProyDisplay() {
           desc: "Una plataforma de telemedicina para conectar pacientes y médicos en tiempo real",
           video: "https://youtube/url",
           categoria: "2",
-          objetivo: "3,4,9,16",
+          objetivo: "03,04,09,16",
           digital: '1'
         },
         {
@@ -101,7 +101,7 @@ function ProyDisplay() {
           desc: "Un proyecto de energía renovable para generar electricidad a partir de la fuerza del agua",
           video: "https://youtube/url",
           categoria: "2",
-          objetivo: "7,9,13,15",
+          objetivo: "07,09,13,15",
           digital: '0'
         },
         {
@@ -110,7 +110,7 @@ function ProyDisplay() {
           desc: "Una plataforma de movilidad inteligente para conectar a los usuarios con diferentes opciones de transporte",
           video: "https://youtube/url",
           categoria: "3",
-          objetivo: "9,11,12,13,17",
+          objetivo: "09,11,12,13,17",
           digital: '1'
         },
         {
@@ -119,7 +119,7 @@ function ProyDisplay() {
           desc: "Una plataforma de aprendizaje en línea para mejorar la educación en áreas rurales y remotas",
           video: "https://youtube/url",
           categoria: "3",
-          objetivo: "4,6,9,10",
+          objetivo: "04,06,09,10",
           digital: '1'
         },
         {
@@ -128,11 +128,12 @@ function ProyDisplay() {
           desc: "Un proyecto para reducir el consumo de agua en hogares y empresas mediante el uso de sensores y tecnología",
           video: "https://youtube/url",
           categoria: "3",
-          objetivo: "6,12,14,15",
+          objetivo: "06,12,14,15",
           digital: '1'
         },
       ];
-      
+    
+    const catId = params.cat_id!
 
 
     const updateProys = () => {
@@ -167,9 +168,11 @@ function ProyDisplay() {
         }
     }
 
-    const objsCheck = (x:any):boolean => {
-        return selectedProy.objetivo.includes(x);
-    }
+
+    const objsCheck = (x: string): boolean => {
+        let dummy: string[] = selectedProy.objetivo.split(",");
+        return dummy.includes(x);
+      };
 
     useEffect(() => {
         updateProys()
@@ -227,68 +230,91 @@ function ProyDisplay() {
                 </div>
                 <div className='inner-middle'>
 
-                    <div className='inner-left-box'>
+                    <div className='inner-upper-box'>
+                        <div className='inner-left-box'>
 
-                        <h2>{selectedProy.nombre}</h2>
-                        <h2>{NombreEquipo}</h2>
+                            <h2>{selectedProy.nombre}</h2>
+                            <h2>{NombreEquipo}</h2>
 
-                        <div className='links'>
-                            <button></button>
-                            <button></button>
+                            <div className='links'>
+                                <button><img style={{height: '20px'}} src='https://i.ibb.co/JsYTckr/youtube.png'/></button>
+                                <button><img style={{height: '25px'}} src='https://i.ibb.co/FbYF1Wy/zoom.png'/></button>
+                            </div>
+
+                        </div>
+                        <div className='inner-right-box'>
+                            <p>{selectedProy.desc}</p>
+                        </div>
+                    </div>
+
+
+                    <div className='inner-bottom-box'>
+
+
+                        <div className='main-objs'>
+
+                            <div className='objs'>
+
+
+
+                                    <div onMouseEnter={() => handelHover(Objetivos.Objetivo1)} onMouseLeave={handleHoverLeave} className={objsCheck('01') ? 'obj' : 'obj-unactive'}><img style={{height: '45px'}} src='https://i.ibb.co/h1hrxGj/Vector.png'/></div>
+                                    <div onMouseEnter={() => handelHover(Objetivos.Objetivo2)} onMouseLeave={handleHoverLeave} className={objsCheck('02') ? 'obj' : 'obj-unactive'}><img style={{height: '45px'}} src='https://i.ibb.co/gd2jZr3/Vector-1.png'/></div>
+                                    <div onMouseEnter={() => handelHover(Objetivos.Objetivo3)} onMouseLeave={handleHoverLeave} className={objsCheck('03') ? 'obj' : 'obj-unactive'}><img style={{height: '45px'}} src='https://i.ibb.co/qNw6D1j/Vector-3.png'/></div>
+                                    <div onMouseEnter={() => handelHover(Objetivos.Objetivo4)} onMouseLeave={handleHoverLeave} className={objsCheck('04') ? 'obj' : 'obj-unactive'}><img style={{height: '45px'}} src='https://i.ibb.co/0MXtDb0/Vector-4.png'/></div>
+                                    <div onMouseEnter={() => handelHover(Objetivos.Objetivo5)} onMouseLeave={handleHoverLeave} className={objsCheck('05') ? 'obj' : 'obj-unactive'}><img style={{height: '45px'}} src='https://i.ibb.co/rtTX4mz/Vector-5.png'/></div>
+                                    <div onMouseEnter={() => handelHover(Objetivos.Objetivo7)} onMouseLeave={handleHoverLeave} className={objsCheck('06') ? 'obj' : 'obj-unactive'}><img style={{height: '45px'}} src='https://i.ibb.co/7ryQd7b/Vector-6.png'/></div>
+                                    <div onMouseEnter={() => handelHover(Objetivos.Objetivo8)} onMouseLeave={handleHoverLeave} className={objsCheck('07') ? 'obj' : 'obj-unactive'}><img style={{height: '45px'}} src='https://i.ibb.co/ns1RKH1/Vector-7.png'/></div>
+                                    <div onMouseEnter={() => handelHover(Objetivos.Objetivo9)} onMouseLeave={handleHoverLeave} className={objsCheck('08') ? 'obj' : 'obj-unactive'}><img style={{height: '45px'}} src='https://i.ibb.co/R41zxrL/Vector-8.png'/></div>
+
+
+
+
+                                    <div onMouseEnter={() => handelHover(Objetivos.Objetivo10)} onMouseLeave={handleHoverLeave} className={objsCheck('09') ? 'obj' : 'obj-unactive'}><img style={{height: '45px'}} src='https://i.ibb.co/7kLnqJG/Vector-11.png'/></div>
+                                    <div onMouseEnter={() => handelHover(Objetivos.Objetivo11)} onMouseLeave={handleHoverLeave} className={objsCheck('10') ? 'obj' : 'obj-unactive'}><img style={{height: '45px'}} src='https://i.ibb.co/XYhL00z/Vector-12.png'/></div>
+                                    <div onMouseEnter={() => handelHover(Objetivos.Objetivo13)} onMouseLeave={handleHoverLeave} className={objsCheck('11') ? 'obj' : 'obj-unactive'}><img style={{height: '45px'}} src='https://i.ibb.co/9cpJJsm/Vector-13.png'/></div>
+                                    <div onMouseEnter={() => handelHover(Objetivos.Objetivo14)} onMouseLeave={handleHoverLeave} className={objsCheck('12') ? 'obj' : 'obj-unactive'}><img style={{height: '45px'}} src='https://i.ibb.co/vzT2DCp/Vector-14.png'/></div>
+                                    <div onMouseEnter={() => handelHover(Objetivos.Objetivo15)} onMouseLeave={handleHoverLeave} className={objsCheck('13') ? 'obj' : 'obj-unactive'}><img style={{height: '45px'}} src='https://i.ibb.co/XSsMvsY/Vector-15.png'/></div>
+                                    <div onMouseEnter={() => handelHover(Objetivos.Objetivo16)} onMouseLeave={handleHoverLeave} className={objsCheck('14') ? 'obj' : 'obj-unactive'}><img style={{height: '45px'}} src='https://i.ibb.co/r2fp8pY/Vector-16.png'/></div>
+                                    <div onMouseEnter={() => handelHover(Objetivos.Objetivo17)} onMouseLeave={handleHoverLeave} className={objsCheck('15') ? 'obj' : 'obj-unactive'}><img style={{height: '45px'}} src='https://i.ibb.co/ftD4wsf/Vector-17.png'/></div>
+
+
+
+                            </div>
+
                         </div>
 
-                    </div>
-                    <div className='inner-right-box'>
-                        <p>{selectedProy.desc}</p>
+
                     </div>
 
+
+
+
+                    
+
                 </div>
+
+
                 <div className='inner-right'>
 
                 </div>
 
 
-            </div>
 
-            <div className='main-objs'>
-
-                <div className='objs'>
-
-
-                    <div onMouseEnter={() => handelHover(Objetivos.Objetivo1)} onMouseLeave={handleHoverLeave} className={objsCheck(1) ? 'obj' : 'obj-unactive'}><img style={{height: '45px'}} src='https://i.ibb.co/h1hrxGj/Vector.png'/></div>
-                    <div onMouseEnter={() => handelHover(Objetivos.Objetivo2)} onMouseLeave={handleHoverLeave} className={objsCheck(2) ? 'obj' : 'obj-unactive'}><img style={{height: '45px'}} src='https://i.ibb.co/gd2jZr3/Vector-1.png'/></div>
-                    <div onMouseEnter={() => handelHover(Objetivos.Objetivo3)} onMouseLeave={handleHoverLeave} className={objsCheck(3) ? 'obj' : 'obj-unactive'}><img style={{height: '45px'}} src='https://i.ibb.co/qNw6D1j/Vector-3.png'/></div>
-                    <div onMouseEnter={() => handelHover(Objetivos.Objetivo4)} onMouseLeave={handleHoverLeave} className={objsCheck(4) ? 'obj' : 'obj-unactive'}><img style={{height: '45px'}} src='https://i.ibb.co/0MXtDb0/Vector-4.png'/></div>
-                    <div onMouseEnter={() => handelHover(Objetivos.Objetivo5)} onMouseLeave={handleHoverLeave} className={objsCheck(5) ? 'obj' : 'obj-unactive'}><img style={{height: '45px'}} src='https://i.ibb.co/rtTX4mz/Vector-5.png'/></div>
-                    <div onMouseEnter={() => handelHover(Objetivos.Objetivo7)} onMouseLeave={handleHoverLeave} className={objsCheck(6) ? 'obj' : 'obj-unactive'}><img style={{height: '45px'}} src='https://i.ibb.co/7ryQd7b/Vector-6.png'/></div>
-                    <div onMouseEnter={() => handelHover(Objetivos.Objetivo8)} onMouseLeave={handleHoverLeave} className={objsCheck(7) ? 'obj' : 'obj-unactive'}><img style={{height: '45px'}} src='https://i.ibb.co/ns1RKH1/Vector-7.png'/></div>
-                    <div onMouseEnter={() => handelHover(Objetivos.Objetivo9)} onMouseLeave={handleHoverLeave} className={objsCheck(8) ? 'obj' : 'obj-unactive'}><img style={{height: '45px'}} src='https://i.ibb.co/R41zxrL/Vector-8.png'/></div>
-                    <div onMouseEnter={() => handelHover(Objetivos.Objetivo10)} onMouseLeave={handleHoverLeave} className={objsCheck(9) ? 'obj' : 'obj-unactive'}><img style={{height: '45px'}} src='https://i.ibb.co/7kLnqJG/Vector-11.png'/></div>
-                    <div onMouseEnter={() => handelHover(Objetivos.Objetivo11)} onMouseLeave={handleHoverLeave} className={objsCheck(10) ? 'obj' : 'obj-unactive'}><img style={{height: '45px'}} src='https://i.ibb.co/XYhL00z/Vector-12.png'/></div>
-                    <div onMouseEnter={() => handelHover(Objetivos.Objetivo13)} onMouseLeave={handleHoverLeave} className={objsCheck(11) ? 'obj' : 'obj-unactive'}><img style={{height: '45px'}} src='https://i.ibb.co/9cpJJsm/Vector-13.png'/></div>
-                    <div onMouseEnter={() => handelHover(Objetivos.Objetivo14)} onMouseLeave={handleHoverLeave} className={objsCheck(12) ? 'obj' : 'obj-unactive'}><img style={{height: '45px'}} src='https://i.ibb.co/vzT2DCp/Vector-14.png'/></div>
-                    <div onMouseEnter={() => handelHover(Objetivos.Objetivo15)} onMouseLeave={handleHoverLeave} className={objsCheck(13) ? 'obj' : 'obj-unactive'}><img style={{height: '45px'}} src='https://i.ibb.co/XSsMvsY/Vector-15.png'/></div>
-                    <div onMouseEnter={() => handelHover(Objetivos.Objetivo16)} onMouseLeave={handleHoverLeave} className={objsCheck(14) ? 'obj' : 'obj-unactive'}><img style={{height: '45px'}} src='https://i.ibb.co/r2fp8pY/Vector-16.png'/></div>
-                    <div onMouseEnter={() => handelHover(Objetivos.Objetivo17)} onMouseLeave={handleHoverLeave} className={objsCheck(15) ? 'obj' : 'obj-unactive'}><img style={{height: '45px'}} src='https://i.ibb.co/ftD4wsf/Vector-17.png'/></div>
-
-
-                </div>
-
-            </div>
-
-            <div className='bottom-desc'>
-                <div className='inner-bottom-desc'>
-                    <p>
-                        {objDisplay}
-                    </p>
-                </div>
             </div>
 
 
         </div>
 
+        <div className='obj-desc'>
+
+            <div className='obj-desc-content'>
+                {objDisplay}
+            </div>
+
+        </div>
+
         {verified ? <div>
-            <Eval proy={selectedProy.idProyecto}/>
+            <Eval proy={selectedProy.idProyecto} category={parseInt(catId)}/>
         </div>: null}
 
 

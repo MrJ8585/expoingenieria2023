@@ -54,13 +54,25 @@
 
 .selected-proy .inner-middle {
     display: flex;
+    flex-direction: column;
     background-color: #F5F5F5;
     width: 50%;
     padding: 2.5rem;
     justify-content: space-between;
     border-radius: 15px;
-    height: 13rem;
 }
+
+.selected-proy .inner-middle .inner-upper-box {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.selected-proy .inner-middle .inner-bottom-box {
+    display: flex;
+    justify-content: space-around;
+}
+
 
 .selected-proy .inner-middle .inner-right-box {
     width: 60%;
@@ -68,7 +80,9 @@
 
 .selected-proy .objs {
     display: flex;
+    flex-wrap: wrap;
 }
+
 
 .main-objs {
     display: flex;
@@ -77,7 +91,8 @@
 }
 
 .main-objs .objs {
-    width: 65%;
+    width: 80%;
+    gap: 1.2rem;
     display: flex;
     justify-content: space-between;
 }
@@ -111,3 +126,85 @@
     font-weight: 400;
 }
 
+.main-proydisplay .obj-desc {
+    width: 100%;
+    height: 8rem;
+    display: flex;
+    justify-content: flex-start;
+    padding-left: 5rem;
+}
+
+.main-proydisplay .obj-desc .obj-desc-content {
+    display: flex;
+    width: 40%;
+    min-height: 1rem;
+    background-color: #F5F5F5;
+    border-radius: 10px;
+    padding: .8rem;
+}
+
+
+.main-proydisplay .pop-info {
+    position: absolute;
+}
+
+.main-proydisplay .selected-proy .links {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 10px;
+    width:8rem;
+}
+
+.main-proydisplay .selected-proy .links button {
+    background-color: #FFC122;
+    border: none;
+    height: 45px;
+    width: 45px;
+    border-radius: 50px;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.main-proydisplay .selected-proy .links button:hover {
+    cursor: pointer;
+    scale: 1.05;
+}
+
+@media screen and (max-width: 768px) {
+
+    .selected-proy .inner-middle {
+        width: 90%;
+    }
+
+    .selected-proy .inner-left-box h2 {
+        font-size: 1.2rem;
+    }
+
+    .selected-proy .inner-right-box p {
+        font-size: .8rem;
+    }
+
+    .selected-proy .inner-right-box {
+        padding:0 .7rem;
+    }
+
+    .main-proydisplay .scroll-proys {
+        width: 75%;
+    }
+
+    .main-proydisplay .obj-desc {
+        margin-top: 10rem;
+        height: 9rem;
+        display: flex;
+        justify-content: space-around;
+        padding-left: 0;
+    }
+    
+    .main-proydisplay .obj-desc .obj-desc-content {
+        width: 90%;
+    }
+
+}
