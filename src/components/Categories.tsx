@@ -84,9 +84,9 @@ function Categories() {
             setInUse(0)
 
             if(digitales){
-                navigate('/proyects/1')
+                navigate('/#/proyects/1')
             }else{
-                navigate('/proyects/2')
+                navigate('/#/proyects/2')
             }
 
         }}>
@@ -109,9 +109,9 @@ function Categories() {
             setInUse(1)
 
             if(digitales){
-                navigate('/proyects/3')
+                navigate('/#/proyects/3')
             }else{
-                navigate('/proyects/4')
+                navigate('/#/proyects/4')
             }
 
         }}>
@@ -133,9 +133,9 @@ function Categories() {
             setInUse(2)
 
             if(digitales){
-                navigate('/proyects/6')
+                navigate('/#/proyects/6')
             }else{
-                navigate('/proyects/5')
+                navigate('/#/proyects/5')
             }
 
         }}>
