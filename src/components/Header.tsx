@@ -21,8 +21,8 @@ function Header() {
         <div className='right-box'>
 
             <div className='inner-box'>
-                <button><img id='search-icon' src='https://cdn-icons-png.flaticon.com/512/149/149852.png' alt='search-icon'/></button>
-                <input id='search-bar'></input>
+                {/* <button><img id='search-icon' src='https://cdn-icons-png.flaticon.com/512/149/149852.png' alt='search-icon'/></button>
+                <input id='search-bar'></input> */}
             </div>
 
             {isAuthenticated ?
