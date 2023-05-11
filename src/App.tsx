@@ -28,7 +28,7 @@ function App() {
           <Route path='/' element={ <Homepage/> } />
           <Route path='/about' element={ <Info/> } />
           <Route path='/categories' element={ <Categories/> } />
-          <Route path='/proyects/:cat_id/:digitales' element={ <ProyDisplay/> } />
+          <Route path='/proyects/:cat_id' element={ <ProyDisplay/> } />
         </Routes>
 
         <Footer/>

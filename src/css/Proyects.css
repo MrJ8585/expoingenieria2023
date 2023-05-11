@@ -20,12 +20,13 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-between;
 }
 
 .proyects-main #logo-exping {
-    height: 25rem;
+    height: 15rem;
     max-width: 100%;
-    margin-bottom: -4rem;
+    margin-bottom: 4rem;
 }
 
 .proyects-main #main-text {
@@ -65,7 +66,6 @@
     .proyects-main #logo-exping {
         height: auto;
         max-width: 100%;
-        margin-bottom: -2rem;
     }
 
     .proyects-main #main-text {
