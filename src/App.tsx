@@ -10,6 +10,7 @@ import Categories from './components/Categories';
 
 import { useAuth0 } from '@auth0/auth0-react'
 import ProyDisplay from './components/ProyDisplay';
+import { HashRouter } from 'react-router-dom'
 
 
 function App() {
@@ -18,7 +19,7 @@ function App() {
 
 
   return (
-    <BrowserRouter>
+    <HashRouter>
       <div className="App">
 
         <Header/>
@@ -34,7 +35,8 @@ function App() {
         <Footer/>
 
       </div>
-    </BrowserRouter>
+
+    </HashRouter>
   );
 }
 
