@@ -1,5 +1,6 @@
 {
   "name": "expoingenieria2023",
+  "homepage": "https://expoingenieria.com/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
