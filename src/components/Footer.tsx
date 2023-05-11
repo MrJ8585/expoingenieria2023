@@ -19,7 +19,7 @@ function Footer() {
 
 
                 <div className='inner-input'>
-                    <input id='email' placeholder='Contáctanos'></input>
+                    <span>informacion@expoingenieria.com</span>
                     <button><img id='email-icon' src='https://cdn-icons-png.flaticon.com/512/542/542689.png' alt='email-icon'/></button>
                 </div>
 
