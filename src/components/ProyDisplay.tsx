@@ -7,8 +7,14 @@ import {privUsers} from '../privUsers'
 import {Objetivos} from '../objs'
 import { useAuth0 } from '@auth0/auth0-react'
 import Eval from './Eval'
+import EditPopup from './EditPopup'
 
 type SelectedProy = Record<string, any>;
+
+interface proyInfo {
+    [key: string]: string;
+}
+
 
 
 function ProyDisplay() {
@@ -19,7 +25,44 @@ function ProyDisplay() {
     const authUserEmail = user?.email ?? 'unverified'
 
     const [verified, setVerified] = useState(false)
+
+    const alreadyEval = async () => {
+
+        let correo = user?.email
+
+        if(correo != undefined){
+
+            try {
+
+                const response = await fetch(`https://expoingenieria.onrender.com/calificaciones/${selectedProy.idProyecto}`, {
+                    method: 'POST',
+                    headers: {"Content-Type": "application/json"},
+                    body: JSON.stringify({"correo": `${correo}`})
+                })
     
+                const data = await response.json()
+    
+                setEvals(data)
+    
+    
+            } catch(error) {
+                console.log(error)
+            }
+
+        }
+
+    }
+
+    const [evals, setEvals] = useState<any>([])
+
+
+    const verifyEval = () => {
+        if(evals.length>0){
+            return true
+        } else {
+            return false
+        }
+    }
 
     const verifyPrivs = () => {
         if(authUserEmail != 'unverified'){
@@ -33,131 +76,56 @@ function ProyDisplay() {
         }  
     }
 
-    
-    const NombreEquipo = 'xxxxxxxx'
-
-    const [proyDisplay, setProyDisplay] = useState<Array<{}>>([])
-
     const params = useParams()
 
+    const catId = params.cat_id!
+
     const [selectedProy, setSelectedProy] = useState<SelectedProy>({
-        idProyecto: 0,
-        nombre: "",
-        desc: "",
-        video: "",
-        categoria: "",
-        objetivo: []
+        "idProyecto": 0,
+        "nombre_equipo": "",
+        "nombre_proyecto": "",
+        "descripcion_proyecto": "",
+        "link_zoom": null,
+        "link_video": null,
+        "categoria": 0,
+        "objetivos_onu": "",
+        "editable": false
     })
 
-    const proyectsDummy = [
-        {
-          idProyecto: 1,
-          nombre: "BiblioBot",
-          desc: "Un asistente virtual para bibliotecas que ayuda a los usuarios a encontrar y reservar libros",
-          video: "https://youtube/url",
-          categoria: "1",
-          objetivo: "1,2,4,7",
-          digital: '1'
-        },
-        {
-          idProyecto: 2,
-          nombre: "EcoGarden",
-          desc: "Una aplicación para aprender a cultivar plantas en casa y cuidar el medio ambiente",
-          video: "https://youtube/url",
-          categoria: "1",
-          objetivo: "3,6,9,12",
-          digital: '1'
-        },
-        {
-          idProyecto: 3,
-          nombre: "CleanOcean",
-          desc: "Un proyecto de limpieza de playas y océanos utilizando drones y tecnología de recolección",
-          video: "https://youtube/url",
-          categoria: "1",
-          objetivo: "14,15",
-          digital: '0'
-        },
-        {
-          idProyecto: 4,
-          nombre: "GreenCity",
-          desc: "Una aplicación para encontrar y compartir información sobre espacios verdes en la ciudad",
-          video: "https://youtube/url",
-          categoria: "2",
-          objetivo: "11,13,16",
-          digital: '1'
-        },
-        {
-          idProyecto: 5,
-          nombre: "HealthTech",
-          desc: "Una plataforma de telemedicina para conectar pacientes y médicos en tiempo real",
-          video: "https://youtube/url",
-          categoria: "2",
-          objetivo: "3,4,9,16",
-          digital: '1'
-        },
-        {
-          idProyecto: 6,
-          nombre: "RenewEnergy",
-          desc: "Un proyecto de energía renovable para generar electricidad a partir de la fuerza del agua",
-          video: "https://youtube/url",
-          categoria: "2",
-          objetivo: "7,9,13,15",
-          digital: '0'
-        },
-        {
-          idProyecto: 7,
-          nombre: "SmartMobility",
-          desc: "Una plataforma de movilidad inteligente para conectar a los usuarios con diferentes opciones de transporte",
-          video: "https://youtube/url",
-          categoria: "3",
-          objetivo: "9,11,12,13,17",
-          digital: '1'
-        },
-        {
-          idProyecto: 8,
-          nombre: "EduTech",
-          desc: "Una plataforma de aprendizaje en línea para mejorar la educación en áreas rurales y remotas",
-          video: "https://youtube/url",
-          categoria: "3",
-          objetivo: "4,6,9,10",
-          digital: '1'
-        },
-        {
-          idProyecto: 9,
-          nombre: "WaterGenius",
-          desc: "Un proyecto para reducir el consumo de agua en hogares y empresas mediante el uso de sensores y tecnología",
-          video: "https://youtube/url",
-          categoria: "3",
-          objetivo: "6,12,14,15",
-          digital: '1'
-        },
-      ];
-      
+    const [fetchProys, setFetchProys] = useState<any>([])
 
+    const handleProys = async () => {
+
+        try {  
+
+            const repsonse = await fetch(`https://expoingenieria.onrender.com/proyectos/${catId}`)
+            const data = await repsonse.json() 
+
+            setFetchProys(data)
+
+
+        } catch(error) {
+            console.log(error)
+        }
+    } 
+    
 
     const updateProys = () => {
 
-        const id = params.cat_id!
-        const paramsDigital = params.digitales!
-
-        const dummy = proyectsDummy.filter((x) => x.categoria == id )
-
-        const dummy2ndFilter = dummy.filter((x) => x.digital == paramsDigital)
-        setProyDisplay(dummy2ndFilter)
-
-        if(dummy2ndFilter.length > 0){
+        if(fetchProys.length > 0){
             setSelectedProy({
-                idProyecto: dummy2ndFilter[0].idProyecto,
-                nombre: dummy2ndFilter[0].nombre,
-                desc: dummy2ndFilter[0].desc,
-                video: dummy2ndFilter[0].video,
-                categoria: dummy2ndFilter[0].categoria,
-                objetivo: dummy2ndFilter[0].objetivo
-            })
+                "idProyecto": fetchProys[0].idProyecto,
+                "nombre_equipo": fetchProys[0].nombre_equipo,
+                "nombre_proyecto": fetchProys[0].nombre_proyecto,
+                "descripcion_proyecto": fetchProys[0].descripcion_proyecto,
+                "link_zoom": fetchProys[0].link_zoom,
+                "link_video": fetchProys[0].link_video,
+                "categoria": fetchProys[0].categoria,
+                "objetivos_onu": fetchProys[0].objetivos_onu,
+            })            
         }
 
     }
-
 
     const ifSelected = (obj:any) => {
         if(obj.idProyecto == selectedProy.idProyecto){
@@ -167,14 +135,22 @@ function ProyDisplay() {
         }
     }
 
-    const objsCheck = (x:any):boolean => {
-        return selectedProy.objetivo.includes(x);
-    }
+    
+
+    const objsCheck = (x: string): boolean => {
+        let dummy: string[] = selectedProy.objetivos_onu.split(", ");
+        return dummy.includes(x);
+    };
+
+    useEffect(() => {
+        handleProys()
+        verifyPrivs()
+        window.scrollTo(0,0)
+    }, [])
 
     useEffect(() => {
         updateProys()
-        verifyPrivs()
-    }, [])
+    }, [fetchProys])
 
 
     const [objDisplay, setObjDisplay] = useState('')
@@ -188,6 +164,40 @@ function ProyDisplay() {
     }
 
 
+
+    const [editable, setEditable] = useState(false)
+
+
+    const bringProy = async () => {
+        try {  
+
+            let correo = user?.email
+
+
+            if(correo != undefined){
+                const repsonse = await fetch(`https://expoingenieria.onrender.com/proyecto/${selectedProy.idProyecto}`, {
+                    method: 'POST',
+                    headers: {"Content-Type":"application/json"},
+                    body: JSON.stringify({"correo": `${correo}`})
+                })
+
+                const data = await repsonse.json() 
+
+                setEditable(data.editable)
+            }
+
+        } catch(error) {
+            console.log(error)
+        }
+    }
+
+    useEffect(() => {
+        alreadyEval()
+        bringProy()
+    }, [selectedProy])
+
+
+
   return (
     <div className='main-proydisplay'>
         <div><h1 id='title'>Proyectos</h1></div>
@@ -196,18 +206,21 @@ function ProyDisplay() {
 
             <div className='scroll-proys'>
 
-            {proyDisplay.map((x:any) => {
+            {fetchProys.map((x:any) => {
                 return (<div key={x.idProyecto} className={ifSelected(x) ? 'selected-proy-scroll' : 'maped-proy'} onClick={() => {
                     setSelectedProy({
-                            idProyecto: x.idProyecto,
-                            nombre: x.nombre,
-                            desc: x.desc,
-                            video: x.video,
-                            categoria: x.categoria,
-                            objetivo: x.objetivo
+                            "idProyecto": x.idProyecto,
+                            "nombre_equipo": x.nombre_equipo,
+                            "nombre_proyecto": x.nombre_proyecto,
+                            "descripcion_proyecto": x.descripcion_proyecto,
+                            "link_zoom": x.link_zoom,
+                            "link_video": x.link_video,
+                            "categoria": x.categoria,
+                            "objetivos_onu": x.objetivos_onu,
                         })
+
                 }}>
-                    <h2 key={x.idProyecto}>{x.nombre}</h2>
+                    <h2 key={x.idProyecto}>Proyecto {x.numero_proyecto}</h2>
                 </div>)
             })}
 
@@ -227,68 +240,101 @@ function ProyDisplay() {
                 </div>
                 <div className='inner-middle'>
 
-                    <div className='inner-left-box'>
+                    <div className='inner-upper-box'>
+                        <div className='inner-left-box'>
 
-                        <h2>{selectedProy.nombre}</h2>
-                        <h2>{NombreEquipo}</h2>
+                            <h2 style={{textAlign: 'left'}}>{selectedProy.nombre_proyecto}</h2>
+                            <h2 style={{textAlign: 'left', color: '#FFC122', marginTop: '.5rem'}}>{selectedProy.nombre_equipo}</h2>
 
-                        <div className='links'>
-                            <button></button>
-                            <button></button>
+                            <div className='links'>
+                                <button onClick={() => {
+                                    if(selectedProy.link_video != null){
+                                        window.location.href = selectedProy.link_video
+                                    }
+                                }}><img style={{height: '20px'}} src='https://i.ibb.co/JsYTckr/youtube.png'/></button>
+                                <button onClick={() => {
+                                    if(selectedProy.link_zoom != null){
+                                        window.location.href = selectedProy.link_zoom
+                                    }
+                                }}><img style={{height: '25px'}} src='https://i.ibb.co/pdGLNHZ/meet.png'/></button>
+                            </div>
+
+                        </div>
+                        <div className='inner-right-box'>
+                            <p>{selectedProy.descripcion_proyecto}</p>
+                        </div>
+                    </div>
+
+
+                    <div className='inner-bottom-box'>
+
+
+                        <div className='main-objs'>
+
+                            <div className='objs'>
+
+
+
+                                    <div onMouseEnter={() => handelHover(Objetivos.Objetivo1)} onMouseLeave={handleHoverLeave} className={objsCheck('01') ? 'obj' : 'obj-unactive'}><img style={{height: '45px'}} src='https://i.ibb.co/h1hrxGj/Vector.png'/></div>
+                                    <div onMouseEnter={() => handelHover(Objetivos.Objetivo2)} onMouseLeave={handleHoverLeave} className={objsCheck('02') ? 'obj' : 'obj-unactive'}><img style={{height: '45px'}} src='https://i.ibb.co/gd2jZr3/Vector-1.png'/></div>
+                                    <div onMouseEnter={() => handelHover(Objetivos.Objetivo3)} onMouseLeave={handleHoverLeave} className={objsCheck('03') ? 'obj' : 'obj-unactive'}><img style={{height: '45px'}} src='https://i.ibb.co/qNw6D1j/Vector-3.png'/></div>
+                                    <div onMouseEnter={() => handelHover(Objetivos.Objetivo4)} onMouseLeave={handleHoverLeave} className={objsCheck('04') ? 'obj' : 'obj-unactive'}><img style={{height: '45px'}} src='https://i.ibb.co/0MXtDb0/Vector-4.png'/></div>
+                                    <div onMouseEnter={() => handelHover(Objetivos.Objetivo5)} onMouseLeave={handleHoverLeave} className={objsCheck('05') ? 'obj' : 'obj-unactive'}><img style={{height: '45px'}} src='https://i.ibb.co/rtTX4mz/Vector-5.png'/></div>
+                                    <div onMouseEnter={() => handelHover(Objetivos.Objetivo6)} onMouseLeave={handleHoverLeave} className={objsCheck('06') ? 'obj' : 'obj-unactive'}><img style={{height: '45px'}} src='https://i.ibb.co/7ryQd7b/Vector-6.png'/></div>
+                                    <div onMouseEnter={() => handelHover(Objetivos.Objetivo7)} onMouseLeave={handleHoverLeave} className={objsCheck('07') ? 'obj' : 'obj-unactive'}><img style={{height: '46px', borderRadius: '50px'}} src='https://i.ibb.co/7NTVs5C/Proyecto-nuevo.jpg'/></div>
+                                    <div onMouseEnter={() => handelHover(Objetivos.Objetivo8)} onMouseLeave={handleHoverLeave} className={objsCheck('08') ? 'obj' : 'obj-unactive'}><img style={{height: '45px'}} src='https://i.ibb.co/ns1RKH1/Vector-7.png'/></div>
+                                    <div onMouseEnter={() => handelHover(Objetivos.Objetivo9)} onMouseLeave={handleHoverLeave} className={objsCheck('09') ? 'obj' : 'obj-unactive'}><img style={{height: '45px'}} src='https://i.ibb.co/R41zxrL/Vector-8.png'/></div>
+
+                                    <div onMouseEnter={() => handelHover(Objetivos.Objetivo10)} onMouseLeave={handleHoverLeave} className={objsCheck('10') ? 'obj' : 'obj-unactive'}><img style={{height: '45px'}} src='https://i.ibb.co/7kLnqJG/Vector-11.png'/></div>
+                                    <div onMouseEnter={() => handelHover(Objetivos.Objetivo11)} onMouseLeave={handleHoverLeave} className={objsCheck('11') ? 'obj' : 'obj-unactive'}><img style={{height: '45px'}} src='https://i.ibb.co/XYhL00z/Vector-12.png'/></div>
+                                    <div onMouseEnter={() => handelHover(Objetivos.Objetivo12)} onMouseLeave={handleHoverLeave} className={objsCheck('12') ? 'obj' : 'obj-unactive'}><img style={{height: '45px'}} src='https://i.ibb.co/9cpJJsm/Vector-13.png'/></div>
+                                    <div onMouseEnter={() => handelHover(Objetivos.Objetivo13)} onMouseLeave={handleHoverLeave} className={objsCheck('13') ? 'obj' : 'obj-unactive'}><img style={{height: '45px', borderRadius: '50px'}} src='https://i.ibb.co/YfX36m6/Proyecto-nuevo-1.jpg'/></div>
+                                    <div onMouseEnter={() => handelHover(Objetivos.Objetivo14)} onMouseLeave={handleHoverLeave} className={objsCheck('14') ? 'obj' : 'obj-unactive'}><img style={{height: '45px'}} src='https://i.ibb.co/vzT2DCp/Vector-14.png'/></div>
+                                    <div onMouseEnter={() => handelHover(Objetivos.Objetivo15)} onMouseLeave={handleHoverLeave} className={objsCheck('15') ? 'obj' : 'obj-unactive'}><img style={{height: '45px'}} src='https://i.ibb.co/XSsMvsY/Vector-15.png'/></div>
+                                    <div onMouseEnter={() => handelHover(Objetivos.Objetivo16)} onMouseLeave={handleHoverLeave} className={objsCheck('16') ? 'obj' : 'obj-unactive'}><img style={{height: '45px'}} src='https://i.ibb.co/r2fp8pY/Vector-16.png'/></div>
+                                    <div onMouseEnter={() => handelHover(Objetivos.Objetivo17)} onMouseLeave={handleHoverLeave} className={objsCheck('17') ? 'obj' : 'obj-unactive'}><img style={{height: '45px'}} src='https://i.ibb.co/ftD4wsf/Vector-17.png'/></div>
+
+
+
+                            </div>
+
+                        </div>
+                        <div className='bottom-trigger'>
+                            {editable ? <EditPopup proyId={selectedProy.idProyecto} correo={authUserEmail}/> : null}
                         </div>
 
-                    </div>
-                    <div className='inner-right-box'>
-                        <p>{selectedProy.desc}</p>
+
                     </div>
 
+
+
+
+                    
+
                 </div>
+
+
                 <div className='inner-right'>
 
                 </div>
 
 
-            </div>
 
-            <div className='main-objs'>
-
-                <div className='objs'>
-
-
-                    <div onMouseEnter={() => handelHover(Objetivos.Objetivo1)} onMouseLeave={handleHoverLeave} className={objsCheck(1) ? 'obj' : 'obj-unactive'}><img style={{height: '45px'}} src='https://i.ibb.co/h1hrxGj/Vector.png'/></div>
-                    <div onMouseEnter={() => handelHover(Objetivos.Objetivo2)} onMouseLeave={handleHoverLeave} className={objsCheck(2) ? 'obj' : 'obj-unactive'}><img style={{height: '45px'}} src='https://i.ibb.co/gd2jZr3/Vector-1.png'/></div>
-                    <div onMouseEnter={() => handelHover(Objetivos.Objetivo3)} onMouseLeave={handleHoverLeave} className={objsCheck(3) ? 'obj' : 'obj-unactive'}><img style={{height: '45px'}} src='https://i.ibb.co/qNw6D1j/Vector-3.png'/></div>
-                    <div onMouseEnter={() => handelHover(Objetivos.Objetivo4)} onMouseLeave={handleHoverLeave} className={objsCheck(4) ? 'obj' : 'obj-unactive'}><img style={{height: '45px'}} src='https://i.ibb.co/0MXtDb0/Vector-4.png'/></div>
-                    <div onMouseEnter={() => handelHover(Objetivos.Objetivo5)} onMouseLeave={handleHoverLeave} className={objsCheck(5) ? 'obj' : 'obj-unactive'}><img style={{height: '45px'}} src='https://i.ibb.co/rtTX4mz/Vector-5.png'/></div>
-                    <div onMouseEnter={() => handelHover(Objetivos.Objetivo7)} onMouseLeave={handleHoverLeave} className={objsCheck(6) ? 'obj' : 'obj-unactive'}><img style={{height: '45px'}} src='https://i.ibb.co/7ryQd7b/Vector-6.png'/></div>
-                    <div onMouseEnter={() => handelHover(Objetivos.Objetivo8)} onMouseLeave={handleHoverLeave} className={objsCheck(7) ? 'obj' : 'obj-unactive'}><img style={{height: '45px'}} src='https://i.ibb.co/ns1RKH1/Vector-7.png'/></div>
-                    <div onMouseEnter={() => handelHover(Objetivos.Objetivo9)} onMouseLeave={handleHoverLeave} className={objsCheck(8) ? 'obj' : 'obj-unactive'}><img style={{height: '45px'}} src='https://i.ibb.co/R41zxrL/Vector-8.png'/></div>
-                    <div onMouseEnter={() => handelHover(Objetivos.Objetivo10)} onMouseLeave={handleHoverLeave} className={objsCheck(9) ? 'obj' : 'obj-unactive'}><img style={{height: '45px'}} src='https://i.ibb.co/7kLnqJG/Vector-11.png'/></div>
-                    <div onMouseEnter={() => handelHover(Objetivos.Objetivo11)} onMouseLeave={handleHoverLeave} className={objsCheck(10) ? 'obj' : 'obj-unactive'}><img style={{height: '45px'}} src='https://i.ibb.co/XYhL00z/Vector-12.png'/></div>
-                    <div onMouseEnter={() => handelHover(Objetivos.Objetivo13)} onMouseLeave={handleHoverLeave} className={objsCheck(11) ? 'obj' : 'obj-unactive'}><img style={{height: '45px'}} src='https://i.ibb.co/9cpJJsm/Vector-13.png'/></div>
-                    <div onMouseEnter={() => handelHover(Objetivos.Objetivo14)} onMouseLeave={handleHoverLeave} className={objsCheck(12) ? 'obj' : 'obj-unactive'}><img style={{height: '45px'}} src='https://i.ibb.co/vzT2DCp/Vector-14.png'/></div>
-                    <div onMouseEnter={() => handelHover(Objetivos.Objetivo15)} onMouseLeave={handleHoverLeave} className={objsCheck(13) ? 'obj' : 'obj-unactive'}><img style={{height: '45px'}} src='https://i.ibb.co/XSsMvsY/Vector-15.png'/></div>
-                    <div onMouseEnter={() => handelHover(Objetivos.Objetivo16)} onMouseLeave={handleHoverLeave} className={objsCheck(14) ? 'obj' : 'obj-unactive'}><img style={{height: '45px'}} src='https://i.ibb.co/r2fp8pY/Vector-16.png'/></div>
-                    <div onMouseEnter={() => handelHover(Objetivos.Objetivo17)} onMouseLeave={handleHoverLeave} className={objsCheck(15) ? 'obj' : 'obj-unactive'}><img style={{height: '45px'}} src='https://i.ibb.co/ftD4wsf/Vector-17.png'/></div>
-
-
-                </div>
-
-            </div>
-
-            <div className='bottom-desc'>
-                <div className='inner-bottom-desc'>
-                    <p>
-                        {objDisplay}
-                    </p>
-                </div>
             </div>
 
 
         </div>
 
+        <div className='obj-desc'>
+
+            <div className='obj-desc-content'>
+                {objDisplay}
+            </div>
+
+        </div>
+
         {verified ? <div>
-            <Eval proy={selectedProy.idProyecto}/>
+            {verifyEval() ? <h1 id='message'>Este proyecto ya fue evaluado</h1> : <Eval proy={selectedProy.idProyecto} category={parseInt(catId)}/>}            
         </div>: null}
 
 

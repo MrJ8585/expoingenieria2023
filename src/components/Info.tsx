@@ -1,7 +1,13 @@
 import React from 'react'
 import '../css/Info.css'
+import { useEffect } from 'react'
 
 function Info() {
+
+  useEffect(() => {
+    window.scrollTo(0,0)
+  }, [])
+
   return (
     <div className='about-section'>
 

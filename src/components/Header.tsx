@@ -10,7 +10,6 @@ function Header() {
 
   const isMobile = window.innerWidth < 768
 
-
   
   return (
     <header>

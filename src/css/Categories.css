@@ -72,7 +72,9 @@
 }
 
 .categories-main .academica .right-box {
-    background-image: url('https://s3-alpha-sig.figma.com/img/7783/9e96/2831eff8f549e43cf24c94ec7b842cd2?Expires=1682899200&Signature=GJf1ZiD~lBKs7~yjO8TK6B8~5aPKA076iCLjAaGZt~0lMGIgMUGl58WdbLuIjzYn3zEvLOiT7t2gRXl2IJNpEk-wxovrYosdU8BRav3BgB0xsqsmNyczRPTpV5bBlQB5DIr4NIwkIK7S37XkWzYeH7qlvDdDTx-51XfDzaFHDJJ6Elhr-SMk6Zi~oqjnksf3iOLZiMh8Z0-9W~aag2wbRJn67yuGnDuyfKkqRzPiqeXueTFr4Sxrjhvv-tXCwFTWYrULP08FOhw2j5Vaxv-FozysRJNdFZg0l93Ub022K81D13v2FVMQqilDPwlm63RG7sOrUgOFVJ0dgWf2aQP~zQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4');
+    background-image: url('https://i.ibb.co/cv3njf6/Rectangle-87.png');
+    background-size: cover;
+    background-position: center;
 }
 
 
@@ -114,8 +116,9 @@
 }
 
 .categories-main .intermedio .left-box {
-    background-image: url('https://s3-alpha-sig.figma.com/img/ba49/f48a/8d7915396b78ca41b2cce573fc552791?Expires=1682899200&Signature=VCDHTIpYSD1GJ10G-o3nYqgQnziUgIt2PdalwXA4rOJdeXJax2BoXt8dhLZXqpRNOQct~k9tmHBVRF2HlCEoM5XgxClAYDIEJZjiWYmXXhqvFo8SiW0bKu66nJFbsMowgTSTuSdm83nZhL4Vtmj3n~IQ3uzk8qlKY-j2lV~xs2xA8c-9I4Hqv8-4yXJVs7QNqWEQTaJmPahPLiKPhr3ktzz5mGP2GYnyjwFKS2q2CNswbSuteqPy7C3DUMCN4d6p9U6Ebk6LDRhCIVc9DBXlpfJUGavtrzQFJSJ~7tepAHugp6270JVjT2CchSwwKuCV84y1WtAXWeszH9B~39TrVA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4');    
-    height: 100%;
+    background-image: url('https://i.ibb.co/0FWYVkq/pexels-sameer-kalani-3802602-4-1.jpg');
+    background-size: contain;
+
 }
 
 .categories-main .cat2 .left-box {
@@ -132,7 +135,7 @@
 }
 
 .categories-main .avanzado .right-box {
-    background-image: url('https://s3-alpha-sig.figma.com/img/7d05/4fbb/06d0234eceaf2cf7ba97734f0d3e0fe0?Expires=1682899200&Signature=ZZMpQrRMbVzXiuQcOljpe800eRNBqCELGiJ4uONyIURjrX4mH37fLa8Rv8B3hJSndOQkl39DmRPqdlkf0rJ6oMaGY9UBjkWeyxoL1pOmt84JMQNmQWJ2WPQVWNjj2XNyTWoedmcZ3h1IMQqKXoFMhkZizNDJQpFy1ofLu5IhKoECi4OqdTDxp6WYdY-lzxvDLn-o15jQZchbHqGQIuaxDYlPTHJt5SF-4mAPvWP3a8oQ5sQiQbGRPIayfFRyiIyHLWtrbFRZyaoWSKnxzX37PwD-20eNXqbmcb7S~-dddLwJ9Dha9vFf6e--cXPQVfdavZBB4xy45QPE-WW~ISnnwQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4');
+    background-image: url('https://i.ibb.co/b6XCNbb/E4-B3-F261-29-B0-4-E23-B048-E766540-D9733-1-201-a-1.png');
 }
 
 .categories-main .avanzado .right-box {
@@ -142,20 +145,21 @@
     background-size: 50rem;
 }
 
-.categories-main .activa .top {
+.categories-main .cat:hover .top {
     color: white;
     transition: all ease .3s;
 }
 
-.categories-main .activa .bottom {
+.categories-main .cat:hover .bottom {
     color: #614600;
     transition: all ease .3s;
 }
 
-.categories-main .activa {
+.categories-main .cat:hover {
     background-color: #FFC122;
     transition: all ease .3s;
 }
+
 
 @media screen and (max-width: 768px) {
     .categories-main #title {

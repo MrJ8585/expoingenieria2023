@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import '../css/Categories.css'
 import FooterButtons from './FooterButtons'
 import {useState} from 'react'
@@ -14,6 +14,10 @@ function Categories() {
     const [digitales, setDigitales] = useState(true)
 
     const [noDigitales, setNoDigitales] = useState(false)
+
+    useEffect(() => {
+        window.scrollTo(0,0)
+    }, [])
 
   return (
     <div className='categories-main'>
@@ -80,9 +84,9 @@ function Categories() {
             setInUse(0)
 
             if(digitales){
-                navigate('/proyects/1/1')
+                navigate('/proyects/1')
             }else{
-                navigate('/proyects/1/0')
+                navigate('/proyects/2')
             }
 
         }}>
@@ -105,14 +109,13 @@ function Categories() {
             setInUse(1)
 
             if(digitales){
-                navigate('/proyects/2/1')
+                navigate('/proyects/3')
             }else{
-                navigate('/proyects/2/0')
+                navigate('/proyects/4')
             }
 
         }}>
             <div className='left-box'>
-
             </div>
 
             <div className='right-box'>
@@ -130,9 +133,9 @@ function Categories() {
             setInUse(2)
 
             if(digitales){
-                navigate('/proyects/3/1')
+                navigate('/proyects/6')
             }else{
-                navigate('/proyects/3/0')
+                navigate('/proyects/5')
             }
 
         }}>
