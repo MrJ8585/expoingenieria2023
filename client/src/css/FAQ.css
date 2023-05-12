@@ -1,0 +1,133 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  
+  .container {
+    width: 80%;
+    margin: 100px auto;
+  }
+  
+  .container-faq {
+    box-shadow: 0 0 15px -1px black(0, 0, 0, 0.1);
+    padding: 30px;
+  }
+  
+  .container-faq .tittle-faq {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 30px;
+  }
+  
+  .item-faq {
+    margin-bottom: 2rem;
+  }
+  
+  .question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    padding: 1.5rem;
+    cursor: pointer;
+    border-bottom: 1px solid black;
+  }
+  
+  .question h3 {
+    font-size: 25px;
+    line-height: 1.5;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  .more {
+    font-size: 20px;
+    color: black;
+    padding: 0 10px;
+  }
+  
+  .answer {
+    transition: all ease .3s;
+    overflow-y: hidden;
+    display: flex;
+    justify-content: flex-start;
+    border-bottom: 1px solid black;
+    height: 0;
+  }
+
+  .active-answer {
+    text-align: start;
+    padding: 10px;
+    background-color: white;
+    font-size: 16px;
+    line-height: 1.5;
+    display: flex;
+    justify-content: flex-start;
+    border-bottom: 1px solid black;
+    font-family: Arial, Helvetica, sans-serif;
+    transition: all ease .5s;
+  }
+  
+  .less {
+    font-size: 20px;
+    color: black;
+    padding: 0 10px;
+  }
+
+  .pie{
+    font-size: 20px;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    border-bottom: 1px solid black;
+    display: flex;
+    align-items: center;
+  }
+  .lal{
+    font-size: 20px;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-top: 20px;
+    text-align: right;
+
+  }
+  .mo{
+    font-size: 20px;
+    display: flex;
+  }
+
+  .Imagenes{
+    width: 30px;
+    margin-left: 20px;
+    display: block;
+  }
+
+  .head-faq span {
+    font-size: 6rem;
+  }
+
+  .head-faq {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 3rem;
+  }
+
+  .side-deco, .side-deco2 {
+    width: 3rem;
+  }
+
+  .side-deco {
+    background-color: #FFC122;
+  }
+
+  @media screen and (max-width: 768px) {
+    .head-faq span {
+        font-size: 2rem;
+    }
+
+    .question h3 {
+        font-size: 15px;
+        line-height: 1.5;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    
+  }

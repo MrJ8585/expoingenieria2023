@@ -1,0 +1,23 @@
+/** @format */
+
+.inicio[data-v-0cc03e6b] {
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9));
+  background-color: gray;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  background-size: cover;
+}
+.card[data-v-35f85783] {
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.08), 0 0 6px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s cubic-bezier(0.155, 1.105, 0.295, 1.12),
+    box-shadow 0.3s,
+    -webkit-transform 0.3s cubic-bezier(0.155, 1.105, 0.295, 1.12);
+}
+.card[data-v-35f85783]:hover {
+  transform: scale(1.03);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.06);
+}
+#Proy[data-v-47d089af] {
+  background: #6798c0;
+}

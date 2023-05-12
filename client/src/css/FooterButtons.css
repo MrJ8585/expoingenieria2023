@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Poppins:wght@200;300;400;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* --------------------------------- */
+
+.fb-main {
+    display: flex;
+    justify-content: space-around;
+    padding: 2rem 0;
+}
+
+.fb-main .container {
+   display: flex;
+   width: 40%;
+   justify-content: space-between;
+}
+
+.fb-main .container .box {
+    display: flex;
+    align-items: center;
+    font-family: 'Poppins';
+    font-weight: 600;
+}
+
+.fb-main .container .box .switch {
+    height: 2rem;
+    width: 5rem;
+    margin-left: 1rem;
+    border-radius: 50px;
+    border: none;
+    background-color: #9C9C9C;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    transition: all ease .3s;
+}
+
+.fb-main .container .box .switch:hover {
+    cursor: pointer;
+}
+
+.fb-main .container .box .switch-active:hover {
+    cursor: pointer;
+} 
+
+.fb-main .container .box .switch-active {
+    height: 2rem;
+    width: 5rem;
+    margin-left: 1rem;
+    border-radius: 50px;
+    border: none;
+    background-color: #FFC122;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    transition: all ease .3s;
+}
+
+.fb-main .container .box .inner-box {
+    height: 1.6rem;
+    width: 1.6rem;
+    border-radius: 50px;
+    background-color: white;
+    margin: 0 .2rem;
+    transition: all ease .3s;
+}
+
+.fb-main .container .box .switch-active .inner-box {
+    height: 1.6rem;
+    width: 1.6rem;
+    border-radius: 50px;
+    background-color: white;
+    margin-left: 3.2rem;
+    transition: all ease .3s;
+}
+
+@media screen and (max-width: 768px) {
+
+    .fb-main {
+        width: 100%;
+    }
+
+    .fb-main .container {
+        width: 100%;
+        padding: 0 1rem;
+    }
+
+    .fb-main .box button {
+        width: .3rem;
+    }
+
+}
