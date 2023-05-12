@@ -4,19 +4,22 @@ const { Router } = require("express");
 
 const mysql = require("mysql");
 const router = new Router();
-require("dotenv").config();
+const path = require('path');
+require("dotenv").config({path: path.resolve(__dirname, '..', '..', '.env')});
 
 const pool = mysql.createPool({
   connectionLimit: 50,
   host: process.env.HOST,
-  user: process.env.USER,
+  user: process.env.DB_USER,
   password: process.env.PASSWORD,
   database: process.env.DATABASE,
   multipleStatements: true,
 });
+
 router.get("/api", (req, res) => {
   res.json({ message: "hola mundo desde el servidor" });
 });
+
 //obtener las calificaciones de un proyecto
 router.post("/calificaciones/:proyecto", (req, res) => {
   const correo = req.body.correo;
