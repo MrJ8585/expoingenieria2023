@@ -14,7 +14,7 @@ function Sections() {
 
             <span onClick={() => navigate('/about')}>¿Qué es?</span>
             <span onClick={() => navigate('/categories')}>Proyectos</span>
-            <span>Preguntas</span>
+            <span onClick={() => navigate('/FAQ')}>Preguntas</span>
 
         </div>
 
