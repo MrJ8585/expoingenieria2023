@@ -1,9 +1,13 @@
 import React, { useEffect } from "react";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import "../css/Eval.css";
 import { useAuth0 } from "@auth0/auth0-react";
 import e from "express";
 import { useNavigate } from "react-router-dom";
+import MyContext from "./MyContext";
+import { error } from "console";
+
+
 
 interface myProps {
   proy: number;
@@ -14,6 +18,14 @@ interface catDic {
   [key: number]: string;
 }
 
+interface descEvals {
+  [key:number]: string;
+}
+
+interface desPreg {
+  [key:number]: string;
+}
+
 function Eval({ proy, category }: myProps) {
   const catDic: catDic = {
     1: "Academica Digital",
@@ -21,8 +33,36 @@ function Eval({ proy, category }: myProps) {
     3: "Intermedio Digital",
     4: "Intermedio PPA",
     5: "Avanzada PPA",
-    6: "Avanazada Digital",
+    6: "Avanzada Digital",
   };
+
+  const descEvals: descEvals = {
+    1: "",
+    2: "",
+  }
+
+  const context = useContext(MyContext)
+
+  if(!context){
+    throw new Error('Used context out provider')
+  }
+
+  const descPreg:desPreg = {
+    1: "La exposición oral permite al juez comprender la necesidad que cubre el proyecto en un ámbito social o industrial.",
+    2: "El equipo utiliza debidamente presentaciones digitales, utilería u otros medios que facilitan el entendimiento del proyecto",
+    3: "El equipo menciona el tipo de innovación propuesta por el proyecto y cumple con la misma.",
+    4: "La exposición oral permite al juez entender todos los conceptos relacionados al proyecto, de manera concisa y clara.",
+    5: "El equipo presenta una vista previa de como debería de ser el proyecto y/o muestra algunas de las funcionalidades",
+    6: "El equipo justifica debidamente el impacto que tiene su proyecto en todos los objetivos de la ONU mencionados",
+    7: "El equipo responde de manera rápida, adecuada y precisa a las preguntas realizadas, mostrando dominio del tema.",
+    8: "El equipo decoró el stand de manera adecuada para atraer a los visitantes y generar expectativa.",
+    9: "La propuesta del equipo muestra claramente las implicaciones matemáticas que conlleva su proyecto.",
+   10: "El equipo muestra un prototipo donde se muestra la funcionalidad del proyecto en su totalidad o casi total (75%).",
+   11: "El equipo muestra un producto con una interfaz que es amigable a la vista, de fácil entendimiento y uso para el usuario final"
+  }
+
+
+  const {value, setValue} = context
 
   const [evalMode, setEvalMode] = useState(false);
 
@@ -87,7 +127,8 @@ function Eval({ proy, category }: myProps) {
       postEval(proy, i + 1, cals[i]);
     }
 
-    navigate("/categories");
+    setValue(true)
+
   };
 
   useEffect(() => {
@@ -128,7 +169,10 @@ function Eval({ proy, category }: myProps) {
           <form className="main-eval-q" onSubmit={handleSubmit}>
             {rubrica.map((rubq: any) => (
               <div className="eval-maped" key={rubq.idPregunta}>
-                <div className="desc">{rubq.pregunta}</div>
+                <div className="left-desc">
+                  <div className="desc">{rubq.pregunta}</div>
+                  <div className="inner-desc"><span>{descPreg[rubq.idPregunta]}</span></div>
+                </div>
                 <input
                   type="number"
                   required

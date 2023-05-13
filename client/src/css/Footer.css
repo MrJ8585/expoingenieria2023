@@ -30,9 +30,10 @@ footer .inner-input {
     padding: .3rem .5rem;
     border-bottom: solid 2px black;
     justify-content: space-between;
-    width: 25%;
+    width: 35%;
     transition: all ease .3s;
 }
+
 
 footer .inner-input #email {
     border: none;

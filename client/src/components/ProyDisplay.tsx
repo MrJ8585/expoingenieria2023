@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 import "../css/ProyDisplay.css";
@@ -9,13 +9,22 @@ import { useAuth0 } from "@auth0/auth0-react";
 import Eval from "./Eval";
 import EditPopup from "./EditPopup";
 
+import MyContext from "./MyContext";
+
 type SelectedProy = Record<string, any>;
 
 interface proyInfo {
   [key: string]: string;
 }
 
+interface catDic {
+  [key: number]: string;
+}
+
 function ProyDisplay() {
+
+  const [value, setValue] = useState<boolean>(false)
+
   const { user } = useAuth0();
 
   const authUserEmail = user?.email ?? "unverified";
@@ -47,11 +56,13 @@ function ProyDisplay() {
 
   const [evals, setEvals] = useState<any>([]);
 
+  const [evalVerify, setEvalVerify] = useState(false)
+
   const verifyEval = () => {
     if (evals.length > 0) {
-      return true;
+      return true
     } else {
-      return false;
+      return false
     }
   };
 
@@ -81,6 +92,7 @@ function ProyDisplay() {
     categoria: 0,
     objetivos_onu: "",
     editable: false,
+    innovacion: ""
   });
 
   const [fetchProys, setFetchProys] = useState<any>([]);
@@ -107,6 +119,7 @@ function ProyDisplay() {
         link_video: fetchProys[0].link_video,
         categoria: fetchProys[0].categoria,
         objetivos_onu: fetchProys[0].objetivos_onu,
+        innovacion: fetchProys[0].innovacion
       });
     }
   };
@@ -129,6 +142,7 @@ function ProyDisplay() {
     verifyPrivs();
     window.scrollTo(0, 0);
   }, []);
+
 
   useEffect(() => {
     updateProys();
@@ -171,10 +185,19 @@ function ProyDisplay() {
     bringProy();
   }, [selectedProy]);
 
+  const catDicTitle: catDic = {
+    1: "Academico Digital",
+    2: "Academico PPA",
+    3: "Intermedio Digital",
+    4: "Intermedio PPA",
+    5: "Avanzado PPA",
+    6: "Avanzado Digital",
+  };
+
   return (
     <div className="main-proydisplay">
       <div>
-        <h1 id="title">Proyectos</h1>
+        <h1 id="title">{catDicTitle[parseInt(catId)]}</h1>
       </div>
 
       <div className="main-scroll">
@@ -187,6 +210,7 @@ function ProyDisplay() {
                   ifSelected(x) ? "selected-proy-scroll" : "maped-proy"
                 }
                 onClick={() => {
+                  setValue(false)
                   setSelectedProy({
                     idProyecto: x.idProyecto,
                     nombre_equipo: x.nombre_equipo,
@@ -196,6 +220,7 @@ function ProyDisplay() {
                     link_video: x.link_video,
                     categoria: x.categoria,
                     objetivos_onu: x.objetivos_onu,
+                    innovacion: x.innovacion
                   });
                 }}
               >
@@ -215,6 +240,14 @@ function ProyDisplay() {
                 <h2 style={{ textAlign: "left" }}>
                   {selectedProy.nombre_proyecto}
                 </h2>
+
+                <h3 style={{
+                    textAlign: "left",
+                    marginTop: ".5rem",
+                    fontWeight: "400"
+                  }}
+                  >{selectedProy.innovacion}</h3>
+                  
                 <h2
                   style={{
                     textAlign: "left",
@@ -454,10 +487,12 @@ function ProyDisplay() {
 
       {verified ? (
         <div>
-          {verifyEval() ? (
+          {verifyEval() || value ? (
             <h1 id="message">Este proyecto ya fue evaluado</h1>
           ) : (
-            <Eval proy={selectedProy.idProyecto} category={parseInt(catId)} />
+            <MyContext.Provider value={{value, setValue}}>
+              <Eval proy={selectedProy.idProyecto} category={parseInt(catId)} />
+            </MyContext.Provider>
           )}
         </div>
       ) : null}

@@ -19,7 +19,7 @@ function Footer() {
 
 
                 <div className='inner-input'>
-                    <span>informacion@expoingenieria.com</span>
+                    <a href='mailto:carlos.trasvina@cetys.mx,anasilvia.armenta@cetys.mx,carlos.aleman@cetys.mx?'>informacion@expoingenieria.com</a>
                     <button><img id='email-icon' src='https://cdn-icons-png.flaticon.com/512/542/542689.png' alt='email-icon'/></button>
                 </div>
 
@@ -27,10 +27,8 @@ function Footer() {
 
             <div className='bottom-box'>
                 <div className='links'>
-                    <button><img src='https://cdn-icons-png.flaticon.com/512/1384/1384005.png'/></button>
-                    <button><img src='https://cdn-icons-png.flaticon.com/512/10110/10110386.png'/></button>
-                    <button><img src='https://cdn-icons-png.flaticon.com/512/6244/6244438.png'/></button>
-                    <button><img src='https://cdn-icons-png.flaticon.com/512/3669/3669688.png'/></button>
+                    <a href='https://www.facebook.com/cetysens'><button><img src='https://cdn-icons-png.flaticon.com/512/1384/1384005.png'/></button></a>
+                    <a href='https://goo.gl/maps/BtdRuu1PbTcwAReB7'><button><img src='https://i.ibb.co/6RYcK4x/gps.png'/></button></a>
                 </div>
                 <span>
                     CETYS Ensenada

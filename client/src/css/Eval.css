@@ -101,6 +101,18 @@
     transition: all ease .3s;
 }
 
+.eval-maped .left-desc {
+    display: flex;
+    flex-direction: column;
+}
+
+.eval-maped .left-desc .inner-desc {
+    color: white;
+    font-size: x-small;
+    text-align: start;
+    font-weight: 400;
+}
+
 @media screen and (max-width: 768px) {
 
     .main-eval .eval-form {
