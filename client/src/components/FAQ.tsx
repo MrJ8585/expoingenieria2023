@@ -43,13 +43,13 @@ function FAQ() {
 
             <div className="item-faq" onClick={() => handleClick(1)}>
               <div className="question">
-                <h3>¿Cuándo es ExpoIngenieria?</h3>
+                <h3>¿Cuándo es ExpoIngeniería?</h3>
                 <div className="more">
                   <i>+</i>
                 </div>
               </div>
               <div className={active[1] ? "active-answer" : "answer"}>
-                <p>La ExpoIngenieria iniciara el martes 16 de mayo del 2023</p>
+                <p>La ExpoIngeniería iniciará el martes 16 de mayo del 2023.</p>
                 <div className="less">
                   <i></i>
                 </div>
@@ -102,8 +102,8 @@ function FAQ() {
                 </div>
               </div>
               <div className={active[4] ? "active-answer" : "answer"}>
-                <p>martes 16 de mayo de 9 a.m. a 2 p.m. y 4 p.m. a 7 p.m.</p>
-                <p>miércoles 17 de mayo de 9 a.m. a 2 p.m</p>
+                <p>Martes 16 de mayo de 9 a.m. a 2 p.m. y 4 p.m. a 7 p.m.</p>
+                <p>miércoles 17 de mayo de 9 a.m. a 2 p.m.</p>
                 <div className="less">
                   <i></i>
                 </div>
@@ -117,7 +117,7 @@ function FAQ() {
                 </div>
               </div>
               <div className={active[5] ? "active-answer" : "answer"}>
-                <p>miércoles 17 de mayo de 4 p.m. a 7 p.m.</p>
+                <p>Miércoles 17 de mayo de 4 p.m. a 7 p.m.</p>
                 <div className="less">
                   <i></i>
                 </div>
@@ -132,10 +132,10 @@ function FAQ() {
               </div>
               <div className={active[6] ? "active-answer" : "answer"}>
                 <p>
-                  Existen dos tipos: digitales y proceso, producto y
-                  automatización (P.P.A.). Un proyecto digital tiene como fin
+                  <b>Existen dos tipos: digitales y proceso, producto y
+                  automatización (PPA).</b> Un proyecto digital tiene como fin
                   último un desarrollo de tipo software o gráfico. Un proyecto
-                  P.P.A. tiene como enfoque principal un desarrollo donde habrá
+                  PPA tiene como enfoque principal un desarrollo donde habrá
                   una implementación física o un sistema físico se va a ver
                   afectado.
                 </p>
@@ -146,20 +146,20 @@ function FAQ() {
             </div>
             <div className="item-faq" onClick={() => handleClick(7)}>
               <div className="question">
-                <h3>¿En que consisten las cateorías?</h3>
+                <h3>¿En qué consisten las categorías?</h3>
                 <div className="more">
                   <i>+</i>
                 </div>
               </div>
               <div className={active[7] ? "active-answer" : "answer"}>
                 <p>
-                  Académico: Proyectos que están en su fase inicial, mostrando
+                  <b>Académico:</b> Proyectos que están en su fase inicial, mostrando
                   mayoritariamente ideas conceptuales o alguna maqueta del
                   proyecto que buscan realizar. Estos proyectos están limitados
-                  a alumnos de 2do semestre. Intermedio: Proyectos que están en
+                  a alumnos de 2do semestre.<br/><b>Intermedio:</b> Proyectos que están en
                   una fase de desarrollo, mostrando prototipos con
                   funcionalidades parciales. Estos proyectos están limitados a
-                  alumnos de 2do a 4to semestre. Avanzado: Proyectos que están
+                  alumnos de 2do a 4to semestre.<br/><b>Avanzado:</b> Proyectos que están
                   en su fase final, los cuales están realizados en su totalidad
                   o cuentan con un prototipo final. Estos proyectos están
                   limitados a alumnos de 6to semestre en adelante.
@@ -214,7 +214,7 @@ function FAQ() {
                 </div>
               </div>
               <div className={active[12] ? "active-answer" : "answer"}>
-                <p>No, es completamente gratis</p>
+                <p>No, es completamente gratis.</p>
                 <div className="less">
                   <i></i>
                 </div>

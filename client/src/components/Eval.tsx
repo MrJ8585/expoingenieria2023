@@ -129,6 +129,8 @@ function Eval({ proy, category }: myProps) {
 
     setValue(true)
 
+    window.scrollTo(0,0)
+
   };
 
   useEffect(() => {
@@ -164,6 +166,12 @@ function Eval({ proy, category }: myProps) {
 
           <div className="title">
             <h1>Rubrica {cat}</h1>
+            <h3>Posibles Calificaciones:</h3>
+            <p>0: No entrego, mala exposición o no se justificó.</p>
+            <p>50-74: Cumple con lo necesario, pero presenta fallos.</p>
+            <p>75-89: Buena respuesta, fallos menores.</p>
+            <p>90-99: Buena respuesta, sin fallos.</p>
+            <p>100: Sobresaliente, su respuesta aclara dudas futuras.</p>
           </div>
 
           <form className="main-eval-q" onSubmit={handleSubmit}>

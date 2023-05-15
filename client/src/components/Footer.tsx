@@ -19,7 +19,7 @@ function Footer() {
 
 
                 <div className='inner-input'>
-                    <a href='mailto:carlos.trasvina@cetys.mx,anasilvia.armenta@cetys.mx,carlos.aleman@cetys.mx?'>informacion@expoingenieria.com</a>
+                    <a href='mailto:informacion@expoingenieria.com?'>informacion@expoingenieria.com</a>
                     <button><img id='email-icon' src='https://cdn-icons-png.flaticon.com/512/542/542689.png' alt='email-icon'/></button>
                 </div>
 

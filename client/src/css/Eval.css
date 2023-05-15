@@ -78,6 +78,22 @@
 
 .main-eval .title {
     margin: 1rem 0;
+    padding: .8rem;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.main-eval .title p {
+    margin-bottom: .3rem;
+    font-size: x-small;
+}
+
+.main-eval .title h3 {
+    margin-bottom: .5rem;
+    font-size: small;
+    margin-top: .5rem;
 }
 
 .main-eval .enviar {
