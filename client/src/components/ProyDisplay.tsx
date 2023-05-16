@@ -262,7 +262,7 @@ function ProyDisplay() {
                   <button
                     onClick={() => {
                       if (selectedProy.link_video != null) {
-                        window.location.href = selectedProy.link_video;
+                        window.open(selectedProy.link_video, '_blank');
                       }
                     }}
                   >
@@ -274,7 +274,7 @@ function ProyDisplay() {
                   <button
                     onClick={() => {
                       if (selectedProy.link_zoom != null) {
-                        window.location.href = selectedProy.link_zoom;
+                        window.open(selectedProy.link_zoom, '_blank');
                       }
                     }}
                   >
