@@ -131,5 +131,6 @@ export const privUsers: string[] = [
     "rene.martinez@cetys.mx",
     "lucia.beltran@cetys.mx",
     "teresa.martinez@cetys.mx",
-    "josealberto.becerra@allegion.com"
+    "josealberto.becerra@allegion.com",
+    "cesardaniel.lopez@allegion.com"
   ];
