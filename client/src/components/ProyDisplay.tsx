@@ -34,7 +34,7 @@ function ProyDisplay() {
   const alreadyEval = async () => {
     let correo = user?.email;
 
-    if (correo != undefined) {
+    if (correo !== undefined) {
       try {
         const response = await fetch(
           `/calificaciones/${selectedProy.idProyecto}`,
@@ -56,7 +56,6 @@ function ProyDisplay() {
 
   const [evals, setEvals] = useState<any>([]);
 
-  const [evalVerify, setEvalVerify] = useState(false)
 
   const verifyEval = () => {
     if (evals.length > 0) {
@@ -186,12 +185,10 @@ function ProyDisplay() {
   }, [selectedProy]);
 
   const catDicTitle: catDic = {
-    1: "Academico Digital",
-    2: "Academico PPA",
-    3: "Intermedio Digital",
-    4: "Intermedio PPA",
-    5: "Avanzado PPA",
-    6: "Avanzado Digital",
+    1: "Pre-Alfa",
+    2: "Alfa",
+    3: "Beta",
+    4: "Gamma",
   };
 
   return (

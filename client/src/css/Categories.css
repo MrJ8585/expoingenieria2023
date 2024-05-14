@@ -34,6 +34,69 @@
     font-size: 1rem;
 }
 
+
+
+
+
+.categories-main .cat0 {
+    display: flex;
+    justify-content: space-between;
+    transition: all ease .3s;
+}
+
+.categories-main .cat0 .right-box {
+    width: 55%;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.categories-main .cat0 .left-box {
+    width: 45%;
+}
+
+.categories-main .cat0 .upper-box {
+    font-family: 'Poppins';
+    font-weight: 600;
+    font-size: 4rem;
+    text-align: right;
+    padding: 1.5rem;
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    transition: all ease .3s;
+}
+
+.categories-main .cat0 .bottom-box {
+    display: flex;
+    justify-content: flex-end;
+    padding: 0 2rem 2rem 0;
+    font-weight: 600;
+    width: 100%;
+}
+
+.categories-main .pre-alfa .left-box {
+    background-image: url('https://i.ibb.co/sC7MgJV/bg-cat-1.jpg');
+    background-size: contain;
+
+}
+
+.categories-main .cat0 .left-box {
+    width: 45%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 80rem;
+}
+
+
+
+
+
+
+
+
+
+
 .categories-main .cat {
     height: 38vh;
 }
@@ -54,7 +117,6 @@
     font-size: 4rem;
     text-align: left;
     padding: 1.5rem;
-    transition: all ease .3s;
 }
 
 .categories-main .cat1 .bottom-box {

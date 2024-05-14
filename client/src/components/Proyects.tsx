@@ -1,4 +1,3 @@
-import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import '../css/Proyects.css'
 import {useEffect} from 'react'
@@ -18,7 +17,7 @@ function Proyects() {
 
         <div className='inner-box'>
 
-          <img id='logo-exping' src='https://i.ibb.co/pKkW8d2/expo-logo.png' alt='logo' />
+          <img id='logo-exping' src='https://i.ibb.co/sJbb0fK/New-Project.png' alt='logo' />
 
 
           <p id='main-text'>Conoce ya los proyectos realizados por los alumnos de la Escuela de Ingeniería de <br/> 

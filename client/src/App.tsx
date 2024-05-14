@@ -2,7 +2,7 @@
 
 import React from "react";
 import "./App.css";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import Homepage from "./components/Homepage";
 import Header from "./components/Header";
 import Sections from "./components/Sections";
@@ -10,16 +10,14 @@ import Info from "./components/Info";
 import Footer from "./components/Footer";
 import Categories from "./components/Categories";
 
-import {useState} from 'react'
 
-import { useAuth0 } from "@auth0/auth0-react";
+
 import ProyDisplay from "./components/ProyDisplay";
 import { HashRouter } from "react-router-dom";
 import FAQ from "./components/FAQ";
 
 
 function App() {
-  const { user } = useAuth0();
 
 
   return (

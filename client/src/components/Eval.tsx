@@ -28,18 +28,11 @@ interface desPreg {
 
 function Eval({ proy, category }: myProps) {
   const catDic: catDic = {
-    1: "Academica Digital",
-    2: "Academica PPA",
-    3: "Intermedio Digital",
-    4: "Intermedio PPA",
-    5: "Avanzada PPA",
-    6: "Avanzada Digital",
+    1: "Pre-Alfa y Alfa",
+    2: "Beta",
+    3: "Gamma",
   };
 
-  const descEvals: descEvals = {
-    1: "",
-    2: "",
-  }
 
   const context = useContext(MyContext)
 
@@ -47,7 +40,7 @@ function Eval({ proy, category }: myProps) {
     throw new Error('Used context out provider')
   }
 
-  const descPreg:desPreg = {
+  const descPregAlfa:desPreg = {
     1: "La exposición oral permite al juez comprender la necesidad que cubre el proyecto en un ámbito social o industrial.",
     2: "El equipo utiliza debidamente presentaciones digitales, utilería u otros medios que facilitan el entendimiento del proyecto",
     3: "El equipo menciona el tipo de innovación propuesta por el proyecto y cumple con la misma.",
@@ -60,6 +53,7 @@ function Eval({ proy, category }: myProps) {
    10: "El equipo muestra un prototipo donde se muestra la funcionalidad del proyecto en su totalidad o casi total (75%).",
    11: "El equipo muestra un producto con una interfaz que es amigable a la vista, de fácil entendimiento y uso para el usuario final"
   }
+
 
 
   const {value, setValue} = context
@@ -110,6 +104,7 @@ function Eval({ proy, category }: myProps) {
 
       const data = await response.json();
 
+      console.log(data)
       setRubrica(data);
     } catch (error) {
       console.log(error);
@@ -179,7 +174,7 @@ function Eval({ proy, category }: myProps) {
               <div className="eval-maped" key={rubq.idPregunta}>
                 <div className="left-desc">
                   <div className="desc">{rubq.pregunta}</div>
-                  <div className="inner-desc"><span>{descPreg[rubq.idPregunta]}</span></div>
+                  <div className="inner-desc"><span>{descPregAlfa[rubq.idPregunta]}</span></div>
                 </div>
                 <input
                   type="number"
